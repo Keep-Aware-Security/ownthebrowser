@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "capabilities.json",
+  "version": "1.0.0",
+  "title": "Capabilities",
+  "description": "Definitions for enterprise, agentic, and pricing capabilities",
+  "type": "object",
+  "properties": {
+    "enterprise": {
+      "type": "array",
+      "description": "Enterprise-specific features and capabilities",
+      "items": {
+        "$ref": "#/$defs/capability"
+      }
+    },
+    "agentic": {
+      "type": "array",
+      "description": "AI and automation capabilities for agentic workflows",
+      "items": {
+        "$ref": "#/$defs/capability"
+      }
+    },
+    "pricing_models": {
+      "type": "array",
+      "description": "Possible pricing model types",
+      "items": {
+        "$ref": "#/$defs/capability"
+      }
+    }
+  },
+  "$defs": {
+    "capability": {
+      "type": "object",
+      "required": ["key", "title"],
+      "properties": {
+        "key": {
+          "type": "string",
+          "pattern": "^[a-z_]+$",
+          "description": "Unique identifier for the capability (lowercase, underscores)"
+        },
+        "title": {
+          "type": "string",
+          "description": "Human-readable display title"
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the capability"
+        }
+      }
+    }
+  }
+}

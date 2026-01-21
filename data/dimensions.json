@@ -1,0 +1,24 @@
+{
+  "dimensions": [
+    { "key": "security", "title": "Security", "note": "How well does the product reduce attack surface and user exposure by default?" },
+    { "key": "reliability", "title": "Reliability", "note": "Does the product behave predictably across updates and real-world usage?" },
+    { "key": "performance_efficiency", "title": "Performance Efficiency", "note": "How efficiently does the product use system and network resources under normal workloads?" },
+    { "key": "usability", "title": "Usability", "note": "How intuitive is the experience for users with varying technical maturity?" },
+    { "key": "compatibility", "title": "Compatibility", "note": "How well does the product work with modern websites, SaaS tools, and extensions?" },
+    { "key": "maintainability", "title": "Maintainability", "note": "How easy is it for IT to configure, update, and support at scale?" },
+    { "key": "portability", "title": "Portability", "note": "How consistently does the product behave across platforms and environments?" },
+    { "key": "functional_suitability", "title": "Functional Suitability", "note": "Does the product align with core business browsing needs without excess or gaps?" },
+    { "key": "enterprise_readiness", "title": "Enterprise Readiness", "note": "Is the product designed with enterprise governance, compliance, and support expectations in mind?" }
+  ],
+  "scale": {
+    "type": "likert_1_5",
+    "levels": [
+      { "level": 1, "label": "Absent" },
+      { "level": 2, "label": "Weak" },
+      { "level": 3, "label": "Adequate" },
+      { "level": 4, "label": "Strong" },
+      { "level": 5, "label": "Hardened" }
+    ],
+    "overall_note": "Given the intended deployment context, what is the overall maturity/risk posture and the operational effort required to keep behavior predictable at scale?"
+  }
+}

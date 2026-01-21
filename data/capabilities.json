@@ -1,0 +1,68 @@
+{
+  "enterprise": [
+    {
+      "key": "identity_context_control",
+      "title": "Identity & Context-Aware Control Plane",
+      "description": "Enforces policy dynamically based on user identity, role, device posture, application context, and session state."
+    },
+    {
+      "key": "ai_usage_governance",
+      "title": "AI Prompt & Output Governance",
+      "description": "Governs AI prompts and outputs in-browser, including data classification, redaction, blocking, and downstream usage controls."
+    },
+    {
+      "key": "extension_governance",
+      "title": "Extension Governance",
+      "description": "Controls, restricts, and monitors browser extensions, injected scripts, and in-page API behavior."
+    },
+    {
+      "key": "action_level_evidence",
+      "title": "Action-Level Evidence & Telemetry",
+      "description": "Captures structured, action-level records of user and AI activity for investigations, audits, and compliance."
+    },
+    {
+      "key": "centralized_management",
+      "title": "Centralized Management",
+      "description": "Offers centralized admin console or management plane"
+    },
+    {
+      "key": "configuration_policies",
+      "title": "Configuration Policies",
+      "description": "Supports pushing various settings through Group Policy or MDM tooling"
+    }
+  ],
+  "agentic": [
+  ],
+  "pricing_models": [
+    {
+      "key": "free",
+      "title": "Free",
+      "description": "Completely free to use"
+    },
+    {
+      "key": "freemium",
+      "title": "Freemium",
+      "description": "Free tier available with paid upgrades"
+    },
+    {
+      "key": "tiered",
+      "title": "Tiered",
+      "description": "Multiple pricing tiers available"
+    },
+    {
+      "key": "per_seat",
+      "title": "Per Seat",
+      "description": "Pricing based on number of users/seats"
+    },
+    {
+      "key": "enterprise_only",
+      "title": "Enterprise Only",
+      "description": "Only available with enterprise agreement"
+    },
+    {
+      "key": "custom",
+      "title": "Custom",
+      "description": "Custom pricing based on requirements"
+    }
+  ]
+}

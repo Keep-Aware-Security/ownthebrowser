@@ -1,0 +1,281 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "browser.json",
+  "version": "1.0.0",
+  "title": "Browser",
+  "description": "Schema for browser profile and ratings data",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "vendor",
+    "updated_at"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the browser (lowercase, hyphenated)"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the browser"
+    },
+    "vendor": {
+      "type": "string",
+      "description": "Company or organization that develops the browser"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of last update"
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "verified",
+        "partial",
+        "limited"
+      ],
+      "description": "Confidence level in the accuracy of this browser profile. verified - primary sources or direct validation. partial - some inference, some sources. limited - little public information"
+    },
+    "engine": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Blink",
+          "Gecko",
+          "WebKit"
+        ]
+      },
+      "description": "Rendering engine(s) used by the browser"
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "windows",
+          "macos",
+          "linux",
+          "ios",
+          "android"
+        ]
+      },
+      "description": "Supported operating system platforms"
+    },
+    "profile": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Vendor-provided description of the browser (one sentence max)"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Neutral one-sentence description of what the browser is and why users choose it"
+        },
+        "popularity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5,
+          "description": "Relative market adoption (0=niche/new, 1=<1M users, 2=1-50M, 3=50-300M, 4=300M-1B, 5=>1B users)"
+        },
+        "official_website": {
+          "type": "string",
+          "format": "uri",
+          "description": "Official browser website URL"
+        },
+        "archetype": {
+          "type": "string",
+          "enum": [
+            "mainstream",
+            "enterprise",
+            "consumer",
+            "privacy",
+            "productivity",
+            "developer",
+            "research",
+            "gaming",
+            "regional"
+          ],
+          "description": "Primary user adoption category (why users choose it)"
+        },
+        "primary_differentiator": {
+          "type": "string",
+          "description": "One neutral sentence describing the core differentiator users seek"
+        }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "properties": {
+        "posture": {
+          "type": "string",
+          "enum": [
+            "specialized",
+            "consumer-first",
+            "enterprise-tolerable",
+            "enterprise-native"
+          ],
+          "description": "Enterprise deployment readiness category"
+        },
+        "rating": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5,
+          "description": "Enterprise deployment readiness score (0-5)"
+        },
+        "summary": {
+          "type": "string",
+          "description": "One sentence justifying the posture and rating"
+        },
+        "drivers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Key factors that drove posture/rating (e.g., policy control, update control, diagnosability)"
+        },
+        "best_fit_scenarios": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Scenarios where this browser is a strong fit for enterprise deployment"
+        },
+        "caution_scenarios": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Scenarios where caution is advised or the browser may not be suitable"
+        }
+      }
+    },
+    "assessment": {
+      "type": "object",
+      "properties": {
+        "dimensions": {
+          "type": "object",
+          "required": [
+            "security",
+            "reliability",
+            "performance",
+            "usability",
+            "compatibility",
+            "maintainability",
+            "portability",
+            "functional_suitability",
+            "enterprise_readiness"
+          ],
+          "properties": {
+            "security": {
+              "type": "object",
+              "required": ["score"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 1, "maximum": 5 },
+                "rationale": { "type": "array", "items": { "type": "string" } }
+              }
+            },
+            "reliability": {
+              "type": "object",
+              "required": ["score"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 1, "maximum": 5 },
+                "rationale": { "type": "array", "items": { "type": "string" } }
+              }
+            },
+            "performance": {
+              "type": "object",
+              "required": ["score"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 1, "maximum": 5 },
+                "rationale": { "type": "array", "items": { "type": "string" } }
+              }
+            },
+            "usability": {
+              "type": "object",
+              "required": ["score"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 1, "maximum": 5 },
+                "rationale": { "type": "array", "items": { "type": "string" } }
+              }
+            },
+            "compatibility": {
+              "type": "object",
+              "required": ["score"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 1, "maximum": 5 },
+                "rationale": { "type": "array", "items": { "type": "string" } }
+              }
+            },
+            "maintainability": {
+              "type": "object",
+              "required": ["score"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 1, "maximum": 5 },
+                "rationale": { "type": "array", "items": { "type": "string" } }
+              }
+            },
+            "portability": {
+              "type": "object",
+              "required": ["score"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 1, "maximum": 5 },
+                "rationale": { "type": "array", "items": { "type": "string" } }
+              }
+            },
+            "functional_suitability": {
+              "type": "object",
+              "required": ["score"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 1, "maximum": 5 },
+                "rationale": { "type": "array", "items": { "type": "string" } }
+              }
+            },
+            "enterprise_readiness": {
+              "type": "object",
+              "required": ["score"],
+              "properties": {
+                "score": { "type": "integer", "minimum": 1, "maximum": 5 },
+                "rationale": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          }
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "verified",
+            "partial",
+            "limited"
+          ]
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "description": "Primary sources used for this profile",
+      "items": {
+        "type": "object",
+        "required": [
+          "title",
+          "url"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
