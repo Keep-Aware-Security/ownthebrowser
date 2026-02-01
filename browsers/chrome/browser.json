@@ -126,5 +126,11 @@
       "notes": "Complete reference of all available Chrome Enterprise policies for browser and ChromeOS management."
     }
   ],
-  "inherits": "blink"
+  "inherits": "blink",
+  "sub_pages": {
+    "configuration": true,
+    "extensions": false,
+    "privacy": false,
+    "agentic": false
+  }
 }
