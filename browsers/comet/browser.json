@@ -1,0 +1,140 @@
+{
+  "id": "comet",
+  "name": "Comet",
+  "vendor": "Perplexity AI",
+  "updated_at": "2026-01-27T07:34:00Z",
+  "engine": [
+    "Blink"
+  ],
+  "platforms": [
+    "windows",
+    "macos",
+    "android"
+  ],
+  "tags": [
+    "AI Browser"
+  ],
+  "profile": {
+    "public_description": "Comet is an AI-powered browser that acts as your personal assistant and thinking partner so you can move faster online.",
+    "summary": "AI-native Chromium browser that turns the agent into a first-class actor for browsing and workflow automation, though its enterprise posture depends heavily on compensating controls around prompt injection, data exposure, and limited native management tooling.",
+    "popularity": 1,
+    "official_website": "https://www.perplexity.ai/comet/",
+    "archetype": "AI browser",
+    "primary_differentiator": "Chromium-based AI browser where a deeply integrated agent can understand pages, automate tasks, and act across tabs and apps as a personal assistant."
+  },
+  "deployment": {
+    "posture": "consumer-first",
+    "rating": 2.5,
+    "summary": "Comet exposes an AI-first browsing model with enterprise-focused messaging via Perplexity Enterprise, but current large-scale deployments require strong surrounding identity, DLP, and security controls rather than relying on a mature browser-native management stack.",
+    "best_fit_scenarios": [
+      "Innovation and security labs evaluating agentic browsers, where Comet's AI automation is tested on synthetic or low-sensitivity data with close monitoring from security teams.",
+      "Knowledge-worker pilot groups in organizations already trialing Perplexity Enterprise, looking to explore AI-driven summarization, research, and task automation within a controlled cohort.",
+      "Teams with strong browser and SaaS security posture (identity-aware proxies, CASB, and DLP) that can bound Comet's access to critical systems while assessing productivity gains."
+    ],
+    "caution_scenarios": [
+      "Enterprises with strict SSO-boundary and session-confidentiality requirements, where an agent that can read and act across authenticated tabs creates unacceptable lateral-movement and data-exfiltration risk.",
+      "Regulated industries that need detailed, auditable controls over AI data flows, model behavior, and retention, beyond what is currently documented for Comet's browser-native configuration.",
+      "Organizations expecting a conventional enterprise browser with mature ADMX/MDM policy catalogs, well-established admin consoles, and large-scale reference deployments."
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 2,
+        "rationale": [
+          "Comet inherits Chromium's sandboxing and web security model and supports safe browsing, ad blocking, and privacy controls, providing a baseline similar to other Chromium browsers.",
+          "Security research has demonstrated agent-specific vulnerabilities such as indirect prompt injection and agent hijacking, where a crafted link or page can direct the AI to access email, credentials, and connected app data.",
+          "Mitigating these risks currently relies heavily on external controls and careful scoping, as there is limited public evidence of a comprehensive, browser-native hardening model specifically targeting AI-agent misuse."
+        ]
+      },
+      "reliability": {
+        "score": 3,
+        "rationale": [
+          "Comet's Chromium foundation provides a stable rendering engine and compatibility with mainstream web applications.",
+          "Perplexity has released Comet in limited availability and continues to iterate, which implies active development but also ongoing behavioral changes in AI features.",
+          "Agent behavior and task automation depend on evolving models and prompts, meaning reliability of AI-driven workflows may vary over time and between updates."
+        ]
+      },
+      "performance": {
+        "score": 3,
+        "rationale": [
+          "Chromium provides competitive baseline performance for rendering and script execution.",
+          "Comet's architecture is tuned for real-time, cross-tab AI interactions, which can improve perceived responsiveness for AI tasks.",
+          "Continuous analysis of page content, multi-step automations, and integrations with email and calendars introduce overhead; enterprises should benchmark under real workloads."
+        ]
+      },
+      "usability": {
+        "score": 4,
+        "rationale": [
+          "Comet maintains a Chrome-like browsing experience while surfacing AI suggestions, follow-up questions, and actions inline, reducing context switching for many tasks.",
+          "The integrated assistant can summarize pages, manage email, update calendars, organize tabs, and help with planning tasks.",
+          "Users must understand when the agent is acting, what it can see, and how its actions affect connected accounts; this adds cognitive and training overhead."
+        ]
+      },
+      "compatibility": {
+        "score": 4,
+        "rationale": [
+          "Comet is based on Chromium and supports Chrome-compatible extensions, providing strong compatibility with modern web applications.",
+          "Chromium architecture ensures that web standards and complex SaaS interfaces behave similarly to Chrome in most cases.",
+          "AI-driven transformations (summarizing or manipulating content) sit on top of compatible rendering but may interact unpredictably with security-sensitive UI flows."
+        ]
+      },
+      "maintainability": {
+        "score": 2,
+        "rationale": [
+          "Public information focuses on Comet's capabilities rather than on a detailed enterprise policy or ADMX/MDM template set.",
+          "Enterprise-focused materials describe Comet as part of Perplexity Enterprise with data-tight deployments, but specific browser-level policy primitives are not widely documented.",
+          "Organizations adopting Comet will likely need to rely on existing device management, identity, and network security tooling rather than mature, browser-native governance features."
+        ]
+      },
+      "portability": {
+        "score": 3,
+        "rationale": [
+          "Comet is available on Windows, macOS, and Android, with mobile clients designed to bring AI-assisted browsing to phones.",
+          "Cross-platform support allows some consistency in AI-assisted workflows, though detailed enterprise management on mobile is not broadly documented.",
+          "Organizations with significant iOS, Linux, or ChromeOS populations may need to standardize on other browsers for those platforms."
+        ]
+      },
+      "functional_suitability": {
+        "score": 3,
+        "rationale": [
+          "Comet supports core browsing functions and adds AI features for summarization, translation, email drafting, calendar management, and multi-step task automation.",
+          "Enterprise-focused analyses emphasize that Comet can help teams research faster and automate repetitive browser tasks.",
+          "Key enterprise capabilities: granular role-based control over AI actions, policy-driven restrictions, and detailed action-level audit logs, are not yet clearly defined in public documentation."
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 2,
+        "rationale": [
+          "Perplexity positions Comet as part of an enterprise offering with claims about secure, controlled deployments, but details of the browser's native governance model remain limited.",
+          "Security research highlights that AI-native browsers like Comet introduce agentic risks: prompt injection, AI hijacking, cross-tab data leakage, requiring new security models.",
+          "Until Perplexity publishes a comprehensive admin model, policy surface, and large-scale reference architectures, Comet should be approached as an emerging option."
+        ]
+      }
+    },
+    "confidence": "partial"
+  },
+  "sources": [
+    {
+      "title": "Comet Browser: a Personal AI Assistant",
+      "url": "https://www.perplexity.ai/comet/",
+      "notes": "Official product page describing Comet as an AI-powered browser that acts as a personal assistant."
+    },
+    {
+      "title": "Ways to Use Comet",
+      "url": "https://www.perplexity.ai/comet/gettingstarted",
+      "notes": "Outlines common Comet use cases such as summarizing pages, managing email and calendars, and planning tasks."
+    },
+    {
+      "title": "Perplexity Enterprise – Comet",
+      "url": "https://www.perplexity.ai/enterprise/comet",
+      "notes": "Enterprise-focused page linking Comet to Perplexity Enterprise, highlighting speed, secure data, and enterprise use."
+    },
+    {
+      "title": "Perplexity Enterprise",
+      "url": "https://www.perplexity.ai/enterprise",
+      "notes": "Describes Perplexity's enterprise offering, including Comet as a browser for faster, controlled browsing and AI access."
+    }
+  ],
+  "inherits": "blink"
+}

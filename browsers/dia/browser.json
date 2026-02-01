@@ -1,0 +1,139 @@
+{
+  "id": "dia",
+  "name": "Dia",
+  "vendor": "The Browser Company (Atlassian)",
+  "updated_at": "2026-01-27T07:32:00Z",
+  "engine": [
+    "Blink"
+  ],
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "tags": [
+    "AI Browser"
+  ],
+  "profile": {
+    "public_description": "Dia is the AI browser from The Browser Company. Chat with your tabs, write in your own voice, learn and plan faster, shop, and more — all with privacy that puts you in control.",
+    "summary": "AI-native Chromium browser with contextual automation capabilities and emerging enterprise ambitions, though its agentic model and limited documented management controls introduce significant privacy and security governance challenges.",
+    "popularity": 1,
+    "official_website": "https://www.diabrowser.com",
+    "archetype": "AI browser",
+    "primary_differentiator": "Chromium-based, AI-first browser that lets an integrated agent read and act on page content and user context across tabs, aiming to turn the browser into a work assistant rather than a passive rendering surface."
+  },
+  "deployment": {
+    "posture": "consumer-first",
+    "rating": 2.4,
+    "summary": "Dia can integrate into enterprise SaaS workflows and Atlassian tools, but its AI agent's access to authenticated content and the lack of a fully documented enterprise management plane mean it should be treated as a controlled pilot rather than a turnkey enterprise browser.",
+    "best_fit_scenarios": [
+      "Innovation or security-research sandboxes where teams explicitly explore AI-assisted workflows (summarization, research, task automation) on non-production or low-sensitivity data.",
+      "Knowledge-worker pilot groups in organizations already invested in Atlassian (Jira, Confluence) that want to test deep AI integrations under tight scoping and monitoring.",
+      "Small, technically mature teams that can pair Dia pilots with robust compensating controls (strict tenant scoping, DLP, identity-aware proxies) and are prepared to monitor agent-driven behavior closely."
+    ],
+    "caution_scenarios": [
+      "Enterprises with strict SSO boundary requirements, where an AI agent observing authenticated sessions and cross-tab content creates unacceptable risk of session abuse.",
+      "Highly regulated environments (finance, healthcare, government) where AI systems processing sensitive internal documents, emails, and source code cannot be adequately governed or logged using current Dia controls.",
+      "Organizations seeking a mature, fully documented enterprise browser with established policy catalogs, admin consoles, and proven large-scale deployments."
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 2,
+        "rationale": [
+          "Dia inherits Chromium's sandboxing and uses Google Safe Browsing for phishing and malware detection.",
+          "The AI agent can see everything the user sees in authenticated sessions, including content behind SSO, with documented risks around SSO-boundary bypass and prompt injection.",
+          "Security documentation highlights exposure in areas such as prompt injection, data privacy, and agent supply-chain vectors, requiring strong external governance for enterprise use."
+        ]
+      },
+      "reliability": {
+        "score": 3,
+        "rationale": [
+          "Dia is built on Chromium and follows its core update and rendering infrastructure, providing baseline stability comparable to mainstream Chromium-based browsers.",
+          "The browser is still in beta and under active development, with Atlassian planning significant changes as it evolves Dia into an enterprise-work browser.",
+          "Reliability of AI behaviors (consistency of Skills and agent actions) is inherently more variable than deterministic browser navigation and may change as models are updated."
+        ]
+      },
+      "performance": {
+        "score": 3,
+        "rationale": [
+          "Chromium provides a performant baseline for rendering and JavaScript execution, and Dia's UI is deliberately minimal.",
+          "AI features introduce additional CPU, memory, and network overhead, especially when the agent continuously processes page content or multiple Skills across open tabs.",
+          "Enterprises should validate performance under typical knowledge-worker workloads, including AI summarization and cross-tab operations."
+        ]
+      },
+      "usability": {
+        "score": 4,
+        "rationale": [
+          "Dia is designed to feel like a stripped-down Chrome/Safari, minimizing UX friction while exposing AI chat and Skills from a sidebar.",
+          "Built-in AI workflows (summarizing pages, answering questions, extracting key points) are available directly in context, reducing tab switching for many tasks.",
+          "The presence of an always-available agent may confuse users about what is safe to delegate and can lead to over-reliance on automation without understanding security implications."
+        ]
+      },
+      "compatibility": {
+        "score": 4,
+        "rationale": [
+          "Dia's Chromium foundation ensures broad compatibility with modern web standards and most Chrome-targeted web applications.",
+          "Chromium-based compatibility enables access to Chrome extensions, although extension governance in the context of an AI agent adds complexity.",
+          "AI Skills that rewrite or summarize content can change how users experience certain workflows."
+        ]
+      },
+      "maintainability": {
+        "score": 2,
+        "rationale": [
+          "As of late 2025, Dia does not publish a comprehensive enterprise policy catalog, ADMX templates, or a detailed admin reference comparable to mature enterprise browsers.",
+          "Atlassian's plans for enterprise-grade management are aspirational, with early partner program messaging instead of documented, widely-deployed management tooling.",
+          "Organizations adopting Dia must rely heavily on existing device management, identity, and DLP tools for governance."
+        ]
+      },
+      "portability": {
+        "score": 3,
+        "rationale": [
+          "Dia is built on Chromium and is primarily documented for desktop use (Windows and macOS).",
+          "Atlassian's roadmap indicates intent to target knowledge workers across common SaaS tools, but concrete multi-OS management details are limited.",
+          "Enterprises with heterogeneous device fleets will likely continue to rely on other browsers for mobile or non-desktop scenarios."
+        ]
+      },
+      "functional_suitability": {
+        "score": 3,
+        "rationale": [
+          "Dia supports core browsing functions and adds AI Skills for summarization, extraction, and contextual assistance, well-suited to research and knowledge work.",
+          "Atlassian plans to integrate Dia with Jira, Confluence, Trello, and other tools to create an AI work hub.",
+          "Limited public detail on native enterprise functions such as granular role-based access to AI skills, audit trails, or configurable guardrails."
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 2,
+        "rationale": [
+          "Dia's Work positioning and Atlassian acquisition indicate strategic intent to become an enterprise AI browser, but current public information lacks concrete admin consoles, policy catalogs, and deployment guides.",
+          "Security research focuses on significant risks: prompt injection, SSO bypass, AI-guided phishing, rather than mature, documented mitigations.",
+          "Until Atlassian delivers and documents enterprise-grade controls, Dia should be considered an emerging, high-risk option requiring strong compensating controls."
+        ]
+      }
+    },
+    "confidence": "partial"
+  },
+  "sources": [
+    {
+      "title": "Dia Browser | AI Chat With Your Tabs",
+      "url": "https://www.diabrowser.com",
+      "notes": "Official marketing site describing Dia as an AI browser that lets users chat with tabs and perform tasks with privacy controls."
+    },
+    {
+      "title": "Security – Dia Browser",
+      "url": "https://www.diabrowser.com/security",
+      "notes": "Vendor security page explaining the agent's visibility limitations, Safe Browsing usage, and high-level security posture."
+    },
+    {
+      "title": "Privacy Policy – Dia Browser",
+      "url": "https://www.diabrowser.com/privacy",
+      "notes": "Describes Dia's local encryption model, when data is sent to Dia's chat backend, and user controls over data use."
+    },
+    {
+      "title": "Security Bulletins – Dia Browser",
+      "url": "https://www.diabrowser.com/security/bulletins",
+      "notes": "Lists recent security fixes and technical notes on Dia's security-related changes."
+    }
+  ],
+  "inherits": "blink"
+}

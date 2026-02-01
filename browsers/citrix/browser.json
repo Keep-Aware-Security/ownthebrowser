@@ -1,0 +1,26 @@
+{
+  "id": "citrix",
+  "name": "Citrix Enterprise Browser",
+  "vendor": "Citrix",
+  "updated_at": "2026-01-21T04:34:56Z",
+  "engine": [
+    "Blink"
+  ],
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "profile": {
+    "summary": "Strong fit for organizations invested in Citrix, delivering a secure managed browser for SaaS and internal web apps with native DLP and isolation; outside a Citrix-centric architecture, its value is narrower.",
+    "popularity": 0,
+    "official_website": "https://www.citrix.com/products/citrix-enterprise-browser",
+    "archetype": "enterprise",
+    "primary_differentiator": "Integration with Citrix workspace stack for secure SaaS and internal web application access."
+  },
+  "deployment": {
+    "posture": "enterprise-native",
+    "rating": 4,
+    "summary": "Built for managed environments with native DLP, isolation, and Citrix platform integration."
+  },
+  "inherits": "blink"
+}

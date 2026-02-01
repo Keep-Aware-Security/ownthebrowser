@@ -1,0 +1,147 @@
+{
+  "id": "duckduckgo",
+  "name": "DuckDuckGo",
+  "vendor": "DuckDuckGo",
+  "updated_at": "2026-01-27T07:38:00Z",
+  "engine": [
+    "Blink",
+    "WebKit"
+  ],
+  "platforms": [
+    "windows",
+    "macos",
+    "ios",
+    "android"
+  ],
+  "tags": [
+    "Privacy"
+  ],
+  "profile": {
+    "public_description": "Download the DuckDuckGo browser to search and browse more privately, with built-in protections like private search, tracker blocking, and smarter encryption.",
+    "summary": "Consumer-focused, privacy-first browser with strong built-in tracking protections and mixed-engine implementation, though it lacks a formal enterprise management model and requires external controls for governance at scale.",
+    "popularity": 3,
+    "official_website": "https://duckduckgo.com/app",
+    "archetype": "privacy",
+    "primary_differentiator": "Cross-platform browser that integrates DuckDuckGo private search with built-in tracker blocking, encryption upgrades, and quick data-clearing controls by default."
+  },
+  "deployment": {
+    "posture": "consumer-first",
+    "rating": 2.4,
+    "summary": "DuckDuckGo Browser can be deployed via standard app and MDM mechanisms with privacy-friendly defaults, but lacks enterprise-grade policy, telemetry, and management capabilities, making it more suited to optional use than as a centrally governed primary browser.",
+    "best_fit_scenarios": [
+      "BYOD or mixed-browser environments where privacy-conscious users are allowed to use DuckDuckGo Browser alongside a primary enterprise-managed browser.",
+      "Small organizations or teams emphasizing privacy over centralized control, where simple app distribution is sufficient and there is less need for detailed browser-level policies.",
+      "Use cases where DuckDuckGo's tracker blocking, HTTPS upgrades, and quick data-clearing capabilities are valuable on mobile or secondary devices."
+    ],
+    "caution_scenarios": [
+      "Enterprises that require a mature enterprise browser with ADMX/MDM policy catalogs, centralized logging, and fine-grained configuration of browser behavior and extensions.",
+      "Organizations with strict visibility and compliance requirements that need detailed telemetry and audit trails from the browser itself.",
+      "Environments where a single, fully managed browser standard is mandated across all platforms, as DuckDuckGo Browser lacks the management plane and ecosystem integrations required for such standardization."
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 3,
+        "rationale": [
+          "DuckDuckGo Browser benefits from WebKit on Apple platforms and Chromium on Windows/Android, inheriting their sandboxing and process isolation capabilities.",
+          "Built-in protections include tracker blocking, automatic HTTPS upgrades, referrer trimming, and cookie pop-up handling, reducing exposure to many third-party tracking and some malicious resources.",
+          "There is limited public documentation on enterprise-oriented security features such as managed certificate pinning, detailed security logging, or enterprise incident-response hooks."
+        ]
+      },
+      "reliability": {
+        "score": 4,
+        "rationale": [
+          "On iOS and macOS, DuckDuckGo Browser leverages Apple's WebKit and app-distribution infrastructure, benefiting from the stability and update cadence of the platform.",
+          "Windows and Android versions are based on Chromium and distributed through official channels, with regular updates providing stability and feature improvements.",
+          "While some users report minor performance or lag issues on heavy sites, there is no broad evidence of systemic reliability problems."
+        ]
+      },
+      "performance": {
+        "score": 3,
+        "rationale": [
+          "WebKit and Chromium provide competitive performance, and blocking some trackers and ads can reduce page weight and improve load times in many scenarios.",
+          "User reviews note that DuckDuckGo Browser can lag slightly on heavier sites, especially on mobile or lower-spec devices.",
+          "Enterprise-scale performance profiling and tuning guidance is not documented."
+        ]
+      },
+      "usability": {
+        "score": 4,
+        "rationale": [
+          "The browser provides a familiar, minimal interface on all platforms, with DuckDuckGo search, Fire Button quick data clearing, and privacy dashboards integrated directly into the UI.",
+          "Out-of-the-box defaults: private search, tracker blocking, and simplified settings, reduce configuration effort for users who want privacy without complex tuning.",
+          "Some users miss the ability to install extensions (password managers, advanced content filters) on certain platforms, which can limit usability in workflows that rely on those tools."
+        ]
+      },
+      "compatibility": {
+        "score": 3,
+        "rationale": [
+          "Chromium and WebKit engines support modern web standards, and DuckDuckGo Browser can load most contemporary sites and SaaS applications as expected.",
+          "Aggressive tracker blocking and cookie handling can cause breakage on sites that rely heavily on third-party scripts or complex tracking-based flows.",
+          "Lack of full extension support, especially for enterprise password managers or SSO helpers, can limit compatibility with some enterprise workflows."
+        ]
+      },
+      "maintainability": {
+        "score": 2,
+        "rationale": [
+          "DuckDuckGo Browser is distributed via app stores and direct downloads, and can be managed at a coarse level through standard MDM and app management tools.",
+          "There is no official ADMX or enterprise configuration schema specifically for DuckDuckGo Browser; settings are mostly user-controlled.",
+          "Organizations that need consistent configuration and change control across fleets must rely on general OS management, network controls, or alternative browsers with richer policy surfaces."
+        ]
+      },
+      "portability": {
+        "score": 4,
+        "rationale": [
+          "DuckDuckGo Browser is available on Windows, macOS, iOS, and Android, with a consistent privacy-focused experience across desktop and mobile.",
+          "Core features: private search, tracker blocking, HTTPS upgrades, and Fire Button, are present across platforms.",
+          "Enterprise-level parity (configuration controls, logging) is not a design goal, so portability is user-centric rather than admin-centric."
+        ]
+      },
+      "functional_suitability": {
+        "score": 3,
+        "rationale": [
+          "DuckDuckGo Browser satisfies common browsing needs with built-in search, tabbed browsing, bookmarking, and privacy features suitable for general-purpose web use.",
+          "Privacy features such as Email Protection, Duck Player (for watching YouTube with fewer ads and tracking), and app tracking protection on mobile address specific user-focused privacy concerns.",
+          "The browser does not include enterprise-specific functionality like native DLP, SSO policy integration, or compliance reporting."
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 1,
+        "rationale": [
+          "DuckDuckGo Browser is positioned exclusively as a consumer privacy product, with no official enterprise edition, policy catalog, management console, or enterprise support.",
+          "Enterprise usage is incidental (user-chosen browser in BYOD scenarios) rather than centrally driven, and there is no documented enterprise deployment or governance model.",
+          "Organizations needing any level of formal enterprise browser support, documentation, or management integration will find DuckDuckGo Browser unsuitable as a managed browser."
+        ]
+      }
+    },
+    "confidence": "partial"
+  },
+  "sources": [
+    {
+      "title": "Download DuckDuckGo for Windows, Mac, iOS and Android",
+      "url": "https://duckduckgo.com/app",
+      "notes": "Official download page listing platforms and positioning the browser as privacy-focused."
+    },
+    {
+      "title": "DuckDuckGo Browser for Windows",
+      "url": "https://duckduckgo.com/windows",
+      "notes": "Describes DuckDuckGo for Windows as a free browsing app with comprehensive privacy protection by default."
+    },
+    {
+      "title": "DuckDuckGo Browser for Mac",
+      "url": "https://duckduckgo.com/mac",
+      "notes": "Describes DuckDuckGo for Mac as a free browser with built-in privacy protections."
+    },
+    {
+      "title": "DuckDuckGo Web Tracking Protections",
+      "url": "https://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/",
+      "notes": "Explains how DuckDuckGo trims referrers and blocks trackers on the web."
+    },
+    {
+      "title": "DuckDuckGo – Protection. Privacy. Peace of mind.",
+      "url": "https://duckduckgo.com",
+      "notes": "High-level positioning of DuckDuckGo's search and browsing protections."
+    }
+  ],
+  "inherits": "blink"
+}
