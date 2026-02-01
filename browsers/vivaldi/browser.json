@@ -1,0 +1,144 @@
+{
+  "id": "vivaldi",
+  "name": "Vivaldi",
+  "vendor": "Vivaldi Technologies",
+  "updated_at": "2026-01-28T15:58:00Z",
+  "engine": [
+    "Blink"
+  ],
+  "platforms": [
+    "windows",
+    "macos",
+    "linux",
+    "android",
+    "ios"
+  ],
+  "profile": {
+    "public_description": "Vivaldi is a highly customizable Chromium-based browser with built-in ad and tracker blocking, privacy controls, and power-user features on desktop and mobile.",
+    "summary": "Feature-rich Chromium browser aimed at power users and privacy-aware consumers, with built-in tracking protection and extensive customization but limited native enterprise management.",
+    "popularity": 3,
+    "official_website": "https://vivaldi.com",
+    "archetype": "privacy",
+    "primary_differentiator": "Highly customizable Chromium browser with integrated power-user tools (tab tiling, side panels, mail, calendar) and built-in ad/tracker blocking on all major desktop and mobile platforms."
+  },
+  "deployment": {
+    "posture": "consumer-first",
+    "rating": 2.5,
+    "summary": "Vivaldi can be deployed and updated using standard OS tooling and benefits from Chromium's security model, but it lacks a fully documented, first-party enterprise management framework and is best treated as an optional or secondary browser in most enterprises.",
+    "best_fit_scenarios": [
+      "Individual power users and technical teams who want a highly customizable, feature-rich browser with better privacy defaults than stock Chrome, on Windows, macOS, Linux, and mobile.",
+      "Small organizations or departments where browser choice is flexible and centralized policy/telemetry requirements are modest, and where Chromium compatibility plus customization are valued.",
+      "Lab, test, or documentation environments where Vivaldi's UI features (for example, tab tiling, side panels, web panels) improve multitasking without strict enterprise browser governance."
+    ],
+    "caution_scenarios": [
+      "Enterprises that require a mature, vendor-supported enterprise management framework (ADMX templates, full policy catalogs, extension governance, and centralized logging) comparable to Chrome Enterprise, Edge, or dedicated enterprise browsers.",
+      "Highly regulated environments that mandate detailed documentation of telemetry, unique identifiers, and data retention, and prefer browsers with minimal phoning home or fully documented enterprise telemetry controls.",
+      "Organizations standardizing on a small set of fully managed browsers, where Vivaldi's niche status and lack of official enterprise tooling make support and compliance more difficult."
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 3,
+        "rationale": [
+          "Vivaldi inherits Chromium's security architecture, including sandboxing, multi-process isolation, and prompt security updates synchronized with Chromium releases.",
+          "Built-in features include tracking prevention, ad blocking, Google Safe Browsing-based phishing and malware protection (enabled by default), WebRTC IP-handling options, and options to block hyperlink audit tracking.",
+          "Independent commentary notes Vivaldi has had very few publicly tracked vulnerabilities and that passwords are protected via OS-level mechanisms, but it relies on Google services for some protections and does not target enterprise security use cases."
+        ]
+      },
+      "reliability": {
+        "score": 4,
+        "rationale": [
+          "Vivaldi's Chromium foundation and frequent release cadence mean it benefits from upstream fixes plus its own bug-fix and feature releases.",
+          "Users and reviewers report that Vivaldi is stable across platforms (Windows, macOS, Linux, Android, iOS), with long-term daily-driver usage documented without systemic reliability issues.",
+          "As with any feature-rich Chromium derivative, extensions and heavy customizations can affect stability, so enterprises would need standard extension hygiene."
+        ]
+      },
+      "performance": {
+        "score": 3,
+        "rationale": [
+          "Vivaldi's performance is generally comparable to other Chromium-based browsers, and native ARM builds on Windows and Linux help on modern hardware.",
+          "Built-in ad/tracker blocking and optional blocking of abusive ads can reduce page weight and improve perceived speed on many sites.",
+          "The rich UI layer and integrated features (panels, mail, calendar) may consume more memory and CPU than minimalist browsers, and highly customized setups can feel heavier on low-end systems."
+        ]
+      },
+      "usability": {
+        "score": 5,
+        "rationale": [
+          "Vivaldi is designed for extreme customization: users can rearrange UI elements, use tab tiling and stacking, side panels, keyboard shortcuts, and integrated tools like notes and mail.",
+          "Privacy and security options are exposed clearly in settings, including tracking prevention, cookie controls, and privacy-oriented defaults in private windows.",
+          "For non-technical users the breadth of options may feel overwhelming, but defaults are usable and users can ignore advanced customization if they choose."
+        ]
+      },
+      "compatibility": {
+        "score": 4,
+        "rationale": [
+          "Chromium/Blink provides strong compatibility with modern web standards and complex SaaS applications, and Vivaldi supports Chrome-compatible extensions.",
+          "Vivaldi is available on Windows, macOS, Linux, Android, and iOS, with multiple packaging options for Linux, supporting both x86_64 and ARM.",
+          "Some fingerprinting and privacy-hardening protections are weaker than in privacy-maximalist browsers, but that generally increases compatibility rather than reducing it."
+        ]
+      },
+      "maintainability": {
+        "score": 2,
+        "rationale": [
+          "Vivaldi can be deployed via standard OS tools (for example, Intune on Windows, package managers on Linux) and supports system-wide, per-user, and standalone installations.",
+          "A community thread notes that Vivaldi lacks a complete native enterprise management framework and that organizations often rely on generic Chromium/Chrome policies or custom PLISTs, which some enterprise teams consider inadequate for full extension and settings management.",
+          "There is no vendor-provided enterprise console or formal ADMX/MDM policy catalog comparable to Chrome Enterprise or Edge, which increases administrative burden at scale."
+        ]
+      },
+      "portability": {
+        "score": 4,
+        "rationale": [
+          "Vivaldi runs on Windows, macOS, Linux (multiple distros), Android, and iOS, with ARM and x86_64 builds, enabling consistent use across heterogeneous environments.",
+          "Standalone installation options and portable profiles simplify use in scenarios where users move between machines or where IT wants isolated browser instances.",
+          "There is no enterprise sync/roaming-profile system separate from Vivaldi Sync, which uses end-to-end encryption but is a consumer-oriented feature rather than an enterprise-governed one."
+        ]
+      },
+      "functional_suitability": {
+        "score": 3,
+        "rationale": [
+          "Vivaldi fully covers consumer and power-user browsing needs with advanced tab management, built-in mail, calendar, RSS, and integrated note-taking.",
+          "Privacy and security features (tracking prevention, ad blocking, private windows, Safe Browsing options) are suitable for general use but not tuned for enterprise threat models like last-mile DLP or zero-trust governance.",
+          "It does not include enterprise-specific capabilities such as native DLP, ZTNA integration, or fine-grained admin controls over data exfiltration, which limits suitability as a primary enterprise browser."
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 2,
+        "rationale": [
+          "Vivaldi is not marketed as an enterprise browser, and community feedback indicates that lack of a first-party enterprise management framework is a primary reason some organizations disallow it.",
+          "While it can consume Chromium/Chrome policies and be deployed via enterprise tools, admins must invest extra effort to manage extensions and settings, and there is no dedicated vendor support model for enterprise governance.",
+          "For organizations that treat browser choice as a user-level decision and do not require central control, Vivaldi can coexist, but it is not currently a reference option for enterprise browser standardization."
+        ]
+      }
+    },
+    "confidence": "partial"
+  },
+  "sources": [
+    {
+      "title": "Privacy & Security Features - Vivaldi",
+      "url": "https://vivaldi.com/features/privacy-security/",
+      "notes": "Describes tracking protection, ad blocking, Safe Browsing options, and sync encryption."
+    },
+    {
+      "title": "Privacy and Security Settings - Vivaldi Help",
+      "url": "https://help.vivaldi.com/desktop/privacy/privacy-settings/",
+      "notes": "Documents tracking prevention, Safe Browsing, WebRTC IP handling, and related settings."
+    },
+    {
+      "title": "Download and Install Vivaldi",
+      "url": "https://help.vivaldi.com/desktop/install-update/install-the-vivaldi-browser/",
+      "notes": "Explains installation types, system requirements, and standalone installs on Windows, macOS, Linux, and mobile."
+    },
+    {
+      "title": "Download Vivaldi",
+      "url": "https://vivaldi.com/download/",
+      "notes": "Lists platform binaries (Windows, macOS, Linux, ARM, Android, iOS)."
+    },
+    {
+      "title": "Vivaldi Browser on Desktop",
+      "url": "https://vivaldi.com/desktop/",
+      "notes": "Highlights customization and privacy features on desktop platforms."
+    }
+  ],
+  "inherits": "blink"
+}

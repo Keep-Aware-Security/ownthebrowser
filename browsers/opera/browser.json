@@ -1,0 +1,134 @@
+{
+  "id": "opera",
+  "name": "Opera",
+  "vendor": "Opera",
+  "updated_at": "2026-01-27T07:29:00Z",
+  "engine": [
+    "Blink"
+  ],
+  "platforms": [
+    "windows",
+    "macos",
+    "linux",
+    "ios",
+    "android"
+  ],
+  "profile": {
+    "public_description": "Opera is a free, fast, and secure web browser that comes with built-in features like a VPN, ad blocker, and integrated messengers for a more powerful browsing experience.",
+    "summary": "Feature-rich consumer Chromium browser with built-in VPN and ad blocking, though it lacks formal enterprise management, policy coverage, and controllability for key features like the integrated VPN.",
+    "popularity": 3,
+    "official_website": "https://www.opera.com/browsers",
+    "archetype": "consumer",
+    "primary_differentiator": "Consumer-focused, cross-platform Chromium browser with integrated VPN/proxy, ad blocker, and side-panel features bundled by default."
+  },
+  "deployment": {
+    "posture": "consumer-first",
+    "rating": 2.2,
+    "summary": "Opera can be deployed like any other desktop application via software distribution tools, but the absence of a documented enterprise policy framework and centrally controllable VPN introduces governance and compliance challenges.",
+    "best_fit_scenarios": [
+      "Small organizations or teams that want a secondary browser with built-in ad blocking and VPN/proxy for specific troubleshooting or testing use cases.",
+      "Developer or QA environments where Opera's Chromium basis is useful for cross-browser testing.",
+      "Non-critical user populations where a managed default browser already exists and Opera is permitted as an optional alternative."
+    ],
+    "caution_scenarios": [
+      "Enterprises with strict egress control or traffic inspection requirements, where the built-in VPN/proxy cannot be centrally disabled via documented policies.",
+      "Organizations that require a mature, vendor-supported policy catalog and centralized browser management console.",
+      "Environments sensitive to browser extension risks, given research showing extension access to Opera-specific private APIs."
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 2,
+        "rationale": [
+          "Opera inherits Chromium's security architecture, including multi-process design and sandboxing.",
+          "Security research has documented vulnerabilities where malicious extensions could access Opera-specific private APIs (CrossBarking, OPEN_FILE/DOWNLOAD_FILE issues) before patches.",
+          "Built-in VPN/proxy and limited enterprise controls increase governance complexity, requiring compensating controls from EDR and network security."
+        ]
+      },
+      "reliability": {
+        "score": 3,
+        "rationale": [
+          "Opera tracks Chromium's release train and provides regular updates for all major platforms.",
+          "Administrators can deploy and update Opera via Group Policy or similar tools using MSI/EXE installers.",
+          "Lack of formal enterprise servicing documentation or ESR-style branches requires organizations to manage updates with general tools."
+        ]
+      },
+      "performance": {
+        "score": 4,
+        "rationale": [
+          "As a Chromium-based browser, Opera offers performance comparable to other Blink-based browsers.",
+          "Built-in ad blocking can reduce page weight and network requests on ad-heavy sites.",
+          "Additional built-in features (VPN/proxy, messaging sidebars) can consume extra resources."
+        ]
+      },
+      "usability": {
+        "score": 4,
+        "rationale": [
+          "Opera provides a Chromium-like user experience with added features such as integrated messengers and a built-in VPN toggle.",
+          "Cross-device sync and availability on major platforms allow consistent workflows.",
+          "VPN toggles and sidebars may require user education or restrictions via external tools in enterprise contexts."
+        ]
+      },
+      "compatibility": {
+        "score": 4,
+        "rationale": [
+          "Chromium/Blink foundation ensures broad compatibility with modern web standards and SaaS applications.",
+          "Opera supports Chrome Web Store extensions and its own extension catalog.",
+          "Opera-specific APIs or modifications may interact differently with certain extensions, requiring targeted testing."
+        ]
+      },
+      "maintainability": {
+        "score": 2,
+        "rationale": [
+          "Opera can be silently installed and updated using standard enterprise software deployment tools.",
+          "No official, comprehensive policy catalog or ADMX templates is documented by Opera.",
+          "Centralized configuration and hardening must be done via external configuration and endpoint tooling."
+        ]
+      },
+      "portability": {
+        "score": 4,
+        "rationale": [
+          "Opera is available on Windows, macOS, Linux, Android, iOS, and ChromeOS with sync capabilities.",
+          "The core feature set is present across platforms, providing consistent user experience.",
+          "Enterprise manageability does not extend uniformly across platforms."
+        ]
+      },
+      "functional_suitability": {
+        "score": 3,
+        "rationale": [
+          "Opera supports core browsing functions such as TLS, modern web standards, and typical authentication flows.",
+          "Built-in ad blocking and VPN/proxy may conflict with corporate traffic inspection or access control models.",
+          "Opera lacks native enterprise features such as integrated DLP or vendor-supported policy sets."
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 2,
+        "rationale": [
+          "Opera can be deployed using standard enterprise tools, but there is no dedicated enterprise edition or management console.",
+          "Community posts highlight uncertainty around centrally managing Opera settings via GPO.",
+          "Security research into extension abuse underscores the need for strong external controls."
+        ]
+      }
+    },
+    "confidence": "partial"
+  },
+  "sources": [
+    {
+      "title": "Browsers for every device – Opera",
+      "url": "https://www.opera.com/browsers",
+      "notes": "Official Opera page describing platform availability and variants."
+    },
+    {
+      "title": "Corporate policies apply to Opera (VPN)",
+      "url": "https://forums.opera.com/topic/87699/corporate-policies-apply-to-opera-vpn/1",
+      "notes": "Community discussion indicating that Opera's built-in VPN cannot be fully controlled centrally by corporate policies."
+    },
+    {
+      "title": "Installing and Configuring Opera via GPO",
+      "url": "https://forums.opera.com/topic/75035/installing-and-configuring-opera-via-gpo",
+      "notes": "Forum thread discussing how to deploy Opera via Group Policy and the lack of official enterprise deployment documentation."
+    }
+  ],
+  "inherits": "blink"
+}

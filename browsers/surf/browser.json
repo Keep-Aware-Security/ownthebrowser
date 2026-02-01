@@ -1,0 +1,140 @@
+{
+  "id": "surf",
+  "name": "SURF Zero Trust Enterprise Browser",
+  "vendor": "SURF Security",
+  "updated_at": "2026-01-28T15:47:00Z",
+  "engine": [
+    "Blink"
+  ],
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "tags": [
+    "Enterprise Browser"
+  ],
+  "profile": {
+    "public_description": "SURF is a Zero-Trust enterprise browser and extension that secures every interaction between users and applications on any device, replacing legacy VPN, VDI, CASB, and SWG complexity with a single secure access point.",
+    "summary": "Chromium-based zero-trust enterprise browser and extension that turns the browser itself into the secure endpoint, aiming to replace or reduce VPN, VDI, CASB, SWG, and some endpoint agents by enforcing granular DLP and threat-prevention policies on both managed and unmanaged devices.",
+    "popularity": 1,
+    "official_website": "https://www.surf.security",
+    "archetype": "enterprise",
+    "primary_differentiator": "Browser-centric zero-trust model that secures managed and unmanaged devices alike, providing VDI/VPN/CASB/SWG-like controls directly in the browser rather than via multiple separate infrastructure components."
+  },
+  "deployment": {
+    "posture": "enterprise-native",
+    "rating": 4,
+    "summary": "SURF is purpose-built as a zero-trust enterprise browser and extension for managed and unmanaged endpoints, with strong in-browser threat prevention, DLP, and posture checks, but it centralizes controls in a vendor platform that will sit alongside or displace existing VPN/VDI/CASB/SWG tooling.",
+    "best_fit_scenarios": [
+      "Organizations seeking to simplify or replace complex VPN, VDI, CASB, SWG, and RBI stacks by converging web, SaaS, and on-prem app access into a browser-centric zero-trust access model.",
+      "Enterprises with large distributed or contractor/BYOD workforces that need granular DLP, posture checks, and session monitoring on unmanaged devices without MDM or hardware-based endpoint security.",
+      "Security teams that want full visibility over browser activity, what apps are used, what data is accessed and moved, and how users authenticate, plus session/DLP recording to strengthen insider-threat and compliance programs."
+    ],
+    "caution_scenarios": [
+      "Environments that prefer a lighter-touch browser where VPN, ZTNA, CASB, and SWG remain separate, and where consolidating enforcement into one browser platform conflicts with procurement or risk-distribution strategy.",
+      "Enterprises that prefer a multi-browser environment or face internal resistance to mandating a single, less-established browser as the exclusive tool for all web-based work.",
+      "Use cases heavily dependent on rich desktop apps or protocols outside HTTP(S), where a browser-centric model alone cannot fully replace VDI or endpoint controls.",
+      "Organizations already standardized on another enterprise browser tightly integrated into an existing SASE stack may face overlap and will need to rationalize where SURF's zero-trust browser fits in their architecture."
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 4,
+        "rationale": [
+          "SURF enforces zero-trust controls at the browser, using SSO and identity-first defenses with kernel-level protection to validate users and endpoints before granting access to corporate apps and data.",
+          "Built-in DLP controls block uploads, downloads, copy/paste, print, and screenshots; apply encryption and scanning to files; enforce watermarks; block password managers; and ensure credentials are not stored locally.",
+          "Web filtering, phishing and malvertising prevention, web DLP, and session/DLP recording provide layered protection against external threats and insider misuse, but overall effectiveness depends on correct policy design and integration with existing identity and monitoring systems."
+        ]
+      },
+      "reliability": {
+        "score": 4,
+        "rationale": [
+          "As a Chromium-based browser with production deployment via AWS Marketplace and partner distributions, SURF is described as reliable and easy to use, with user reviews reporting no significant stability issues.",
+          "SURF operates without requiring separate cloud-based single points of failure, providing a sandbox environment on any device while relying on cloud management for policy and analytics.",
+          "Like other enterprise browsers, SURF is an evolving product; organizations must track feature and policy updates to ensure continuity for critical workflows."
+        ]
+      },
+      "performance": {
+        "score": 4,
+        "rationale": [
+          "SURF claims a frictionless, high-performance user experience that eliminates the need for multiple VDI tools, proxies, and VPNs, reducing latency and complexity for SaaS and on-prem apps.",
+          "Local browser-based enforcement avoids hair-pinning traffic through central gateways for many controls, while web filtering and DLP run inside the browser session.",
+          "Advanced DLP and recording features introduce processing overhead; enterprises should benchmark SURF on lower-spec devices and in long-running browser sessions."
+        ]
+      },
+      "usability": {
+        "score": 4,
+        "rationale": [
+          "SURF delivers the same user experience as other Chromium-based browsers and is designed to be familiar to end users while adding enterprise protections transparently.",
+          "Users access SaaS and on-prem apps through a single browser with policies applied in the background, reducing dependence on separate VPN or VDI clients.",
+          "Strict policies (for example, blocking copy/paste, downloads, or screenshots) can affect user workflows; clear communication, role-based policies, and exception handling are needed to balance security and productivity."
+        ]
+      },
+      "compatibility": {
+        "score": 4,
+        "rationale": [
+          "Chromium underpinnings provide strong compatibility with modern web standards and SaaS applications; SURF is intended to secure access to both cloud and on-prem web resources.",
+          "The combination of a full browser and an extension allows SURF controls to be applied either via its own browser or through mainstream browsers on managed devices.",
+          "Aggressive DLP and web filtering can interfere with some application features (for example, complex uploads, collaboration tools) until policies are tuned per app and per role."
+        ]
+      },
+      "maintainability": {
+        "score": 4,
+        "rationale": [
+          "SURF offers centralized zero-trust policies that apply across managed and unmanaged devices, enabling IT and security teams to configure only a few policies to significantly reduce the attack surface.",
+          "Policy enforcement covers authentication, device posture, data-handling rules, and user actions (downloads, uploads, copy/paste, print, screenshots) with role-, group-, and location-based customization.",
+          "Because SURF is an additional control plane, enterprises must integrate it with existing IAM, SIEM, and compliance workflows to avoid overlapping or conflicting policies."
+        ]
+      },
+      "portability": {
+        "score": 3,
+        "rationale": [
+          "SURF is explicitly designed to work across managed and unmanaged devices, enforcing posture and policy regardless of device ownership, and providing a sandboxed environment for corporate resources.",
+          "Formal platform lists in public collateral highlight any device rather than exhaustive OS breakdown; organizations should verify detailed OS/browser support for specific fleets.",
+          "Mandating SURF as the sole browser creates vendor lock-in; organizations should weigh portability of policies and data if they later need to migrate to a different browser platform."
+        ]
+      },
+      "functional_suitability": {
+        "score": 4,
+        "rationale": [
+          "SURF covers core browsing and adds enterprise-focused capabilities such as web DLP, web filtering, posture checks, SaaS discovery, session recording, and VDI/VPN/CASB replacement features.",
+          "The solution addresses multiple use cases: DLP, distributed workforce protection, BYOD, contractors, insider threat, compliance, social-engineering protection, and GenAI security within one browser-centric model.",
+          "Non-web workloads and specialized remote protocols may still require complementary solutions; SURF's strengths are in web/SaaS access rather than full endpoint replacement."
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 4,
+        "rationale": [
+          "SURF is marketed entirely as an enterprise zero-trust browser and extension, with solution briefs and brochures aimed at CISOs and compliance teams, not consumers.",
+          "Its controls, web DLP, posture enforcement across managed/unmanaged devices, SaaS visibility, session recording, and granular data control, are aligned with regulatory expectations.",
+          "The product is less widely referenced than some other enterprise browsers and does not appear tightly coupled to a broader SASE platform, so organizations must validate long-term roadmap, support, and integration patterns."
+        ]
+      }
+    },
+    "confidence": "partial"
+  },
+  "sources": [
+    {
+      "title": "SURF - The Enterprise Browser",
+      "url": "https://www.surf.security",
+      "notes": "Main site describing SURF's zero-trust browser, DLP, phishing prevention, and endpoint protections."
+    },
+    {
+      "title": "SURF Security Full Browser",
+      "url": "https://www.surf.security/platform/fullbrowser",
+      "notes": "Product page describing the full end-to-end zero-trust enterprise browser experience."
+    },
+    {
+      "title": "SURF Security Enterprise Zero-Trust Browser - AWS Marketplace",
+      "url": "https://aws.amazon.com/marketplace/pp/prodview-q2vebywzabzqk",
+      "notes": "Marketplace listing with use cases, highlights, and customer reviews."
+    },
+    {
+      "title": "SURF Zero Trust Enterprise Browser & Extension - Brochure",
+      "url": "https://21528654.fs1.hubspotusercontent-na1.net/hubfs/21528654/SURF%20-%20BROCHURE%202024%20-%20FINAL.pdf",
+      "notes": "Detailed brochure describing managed/unmanaged support, DLP, posture, VPN/VDI/CASB replacement, and compliance posture."
+    }
+  ],
+  "inherits": "blink"
+}

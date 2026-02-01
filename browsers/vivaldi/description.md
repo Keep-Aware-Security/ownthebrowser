@@ -1,0 +1,17 @@
+Vivaldi is a feature-rich, Chromium-based browser created by Vivaldi Technologies (founded by former Opera leadership) that focuses on customization, integrated power-user tools, and reasonable privacy defaults rather than minimalism. It runs on Windows, macOS, Linux, Android, and iOS, including native ARM builds for Windows and Linux, and offers multiple desktop packaging formats (DEB, RPM, Flatpak, Snap) for x86_64 and ARM. The browser ships with a configurable UI (tab tiling, stacking, side panels, keyboard-driven navigation) and integrated apps like notes, mail, calendar, and RSS, targeting users who want an all-in-one, customizable environment.
+
+### Market Position
+
+Vivaldi positions itself as a privacy-respecting alternative to mainstream Chromium browsers, with out-of-the-box tracker and ad blocking and a policy of not building user profiles for ad targeting. It competes more directly with browsers like Brave and Firefox in the consumer and prosumer space than with enterprise browsers like Island or Prisma, and it has a relatively small but loyal user base that values customization and independence from Big Tech ownership. Community and review sites generally regard Vivaldi as safe and customizable but not at the same privacy level as more aggressive privacy browsers, due to reliance on some Google services and telemetry (for example, a unique installation identifier and optional Safe Browsing).
+
+### Technical Foundation
+
+Vivaldi uses the Chromium/Blink engine, inheriting Chrome-level site compatibility, sandboxing, and frequent security patches, and tracks Chromium's security releases closely. It layers on its own UI and features and exposes extensive privacy and security options, including built-in tracker and ad blocking, configurable tracking prevention levels, options to block hyperlink audit tracking, and WebRTC IP handling controls. Vivaldi can use Google's Safe Browsing API for phishing and malware protection (enabled by default), and states that it does not send full browsing data to Google when using this feature.
+
+### Privacy Posture
+
+According to Vivaldi's own privacy materials and independent reviews, the browser's major privacy features are its native ad/tracker blocker and various tracking-prevention options, plus optional private-window modes that block third-party cookies and avoid storing history on disk. However, the browser keeps a unique identifier per installation and phones home periodically (about every 24 hours) with limited IP anonymization, and it enables some Google services (such as Safe Browsing) by default, which leads many privacy-focused reviewers to classify it as more private than Chrome but behind browsers like Brave.
+
+### Enterprise Adoption
+
+Vivaldi does not have a dedicated enterprise edition or admin console; it is primarily a consumer and power-user browser, though it is used in some organizations. Community enterprise discussions point out that Vivaldi does not yet offer a complete native enterprise management framework, and some security teams exclude it from their approved browser list for this reason, even though as a Chromium browser it can consume many Chrome policies via OS-level mechanisms and custom configuration (for example, PLIST on macOS). In practice, enterprise use tends to be opportunistic or limited to teams and individuals rather than as a centrally managed, standard enterprise browser.

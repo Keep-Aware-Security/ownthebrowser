@@ -1,0 +1,156 @@
+{
+  "id": "mammoth",
+  "name": "Mammoth Enterprise Browser",
+  "vendor": "Mammoth Cyber",
+  "updated_at": "2026-01-28T15:25:00Z",
+  "engine": [
+    "Blink"
+  ],
+  "platforms": [
+    "windows",
+    "macos",
+    "ios",
+    "android"
+  ],
+  "tags": [
+    "Enterprise Browser"
+  ],
+  "profile": {
+    "public_description": "Mammoth Enterprise AI Browser unifies productivity, data-loss prevention, insider-threat protection, and zero-trust controls in one secure workspace.",
+    "summary": "Chromium-based enterprise AI browser that makes the browser the policy and DLP enforcement point for SaaS, GenAI, and BYOD, though it centralizes critical controls and vendor dependency at the browser layer.",
+    "popularity": 1,
+    "official_website": "https://mammothcyber.com",
+    "archetype": "enterprise",
+    "primary_differentiator": "Zero-trust enterprise AI browser with browser-native policy enforcement, AI-aware DLP, and BYOD/contractor coverage across desktop and mobile."
+  },
+  "deployment": {
+    "posture": "enterprise-native",
+    "rating": 4,
+    "summary": "Mammoth is designed as a browser-native zero-trust and AI-governance platform with integrated DLP and BYOD coverage, but its effectiveness depends on careful policy design and its role as a central, vendor-managed control point.",
+    "best_fit_scenarios": [
+      "Enterprises prioritizing zero-trust access to SaaS and internal web apps for remote workers, contractors, and unmanaged devices, where browser-layer policy can replace or reduce VPN and VDI complexity.",
+      "Organizations seeking AI-aware DLP that inspects prompts and outputs, isolates GenAI sessions, and enforces contextual policies around which AI tools and models can be used with sensitive data.",
+      "Security and compliance programs that require detailed, auditable logs of browser data actions (clipboard use, file actions, unsanctioned app visits) to feed SIEM/XDR and demonstrate regulatory diligence."
+    ],
+    "caution_scenarios": [
+      "Organizations that prefer a thin-browser model with minimal vendor-specific logic, where consolidating policy, DLP, and AI governance into one proprietary browser conflicts with multi-vendor or commodity-browser strategies.",
+      "Enterprises that prefer a multi-browser environment or face internal resistance to mandating a single, less-established browser as the exclusive tool for all web-based work.",
+      "Environments heavily dependent on rich desktop apps or legacy protocols outside the browser, where Mammoth's browser-centric approach may only cover part of the attack and data-exfiltration surface."
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 4,
+        "rationale": [
+          "Mammoth enforces zero-trust access by tying browser sessions to identity, device posture, and policy, and can block or allow actions such as downloads, uploads, clipboard use, print, and screen share on a granular basis.",
+          "Browser-native DLP, session isolation, watermarking, session recording, and screen-share prevention reduce exfiltration and insider-risk paths across managed and unmanaged devices.",
+          "Security posture depends on correct policy design and integration with identity and SIEM/XDR systems; as with other enterprise browsers, Mammoth centralizes enforcement and requires robust governance to avoid misconfiguration or blind spots."
+        ]
+      },
+      "reliability": {
+        "score": 4,
+        "rationale": [
+          "The browser is Chromium-based and described as production-ready for securing remote access, with app-store distribution and regular version updates.",
+          "Mammoth is designed to avoid agents or network proxies, which can reduce latency compared to VDI/SWG chains and remove some failure modes associated with multi-hop architectures.",
+          "As an evolving enterprise product adding AI and governance capabilities, it requires ongoing coordination around updates and policy changes, especially for regulated use cases."
+        ]
+      },
+      "performance": {
+        "score": 4,
+        "rationale": [
+          "Using Chromium and eliminating VDI/proxy hops for web apps can reduce latency and improve user experience compared to remote desktops or heavy SWG chains.",
+          "Mammoth's enforcement at the browser layer (for example, blocking data actions inline) avoids some of the overhead of deep network inspection, though DLP and session instrumentation add processing work on the endpoint.",
+          "Organizations should benchmark performance under real workloads (including GenAI sessions and high-volume SaaS use) to ensure DLP and recording do not degrade user experience on lower-spec devices."
+        ]
+      },
+      "usability": {
+        "score": 4,
+        "rationale": [
+          "Mammoth presents a Chromium-like browsing experience with additional controls applied transparently, and user testimonials highlight that remote employees can simply open the browser and access their apps.",
+          "For BYOD users, the ability to secure sessions without MDM or complex setup reduces friction, particularly in contractor and partner access scenarios.",
+          "Policy-driven restrictions (for example, blocking copy/paste, downloads, or screen share) can surprise users and must be accompanied by clear communication and exception workflows."
+        ]
+      },
+      "compatibility": {
+        "score": 4,
+        "rationale": [
+          "As a Chromium-based browser, Mammoth supports modern web standards and is designed for SaaS and internal web apps.",
+          "Mammoth's browser-native approach secures both internal and SaaS applications and is built to work across various device types without relying on specific OS-level agents.",
+          "Strict policies and GenAI restrictions may interfere with certain web flows or extensions until tuned, particularly when dealing with complex multi-tenant SaaS or legacy web apps."
+        ]
+      },
+      "maintainability": {
+        "score": 4,
+        "rationale": [
+          "Mammoth centralizes browser governance through a single console for creating and managing policies that apply across users, devices, and applications, including real-time rule updates.",
+          "Policy enforcement is identity- and posture-aware, enabling consistent least-privilege access and automated risk-based adjustments without deploying multiple agents per endpoint.",
+          "Enterprises must integrate Mammoth's policy and logging with existing SIEM/XDR, IAM, and compliance processes; this improves observability but increases the need for coherent policy management and version control."
+        ]
+      },
+      "portability": {
+        "score": 3,
+        "rationale": [
+          "Mammoth provides enterprise browser experiences for Windows, macOS, iOS, and Android, including a mobile enterprise browser that gives seamless access to internal and SaaS apps without VPN.",
+          "Linux and ChromeOS are not prominently documented as first-class platforms; organizations with significant non-Windows/macOS/mobile populations may need additional solutions for full coverage.",
+          "Mandating Mammoth as the sole browser creates vendor lock-in; organizations should weigh portability of policies and data if they later need to migrate to a different browser platform."
+        ]
+      },
+      "functional_suitability": {
+        "score": 4,
+        "rationale": [
+          "Mammoth covers core enterprise browsing and adds browser-native secure access, DLP, session isolation, and GenAI governance features tailored to modern SaaS and AI-heavy workflows.",
+          "The platform supports use cases such as secure mobile access, VDI reduction, secure unmanaged-device access, and AI data protection, aligning with typical zero-trust and productivity goals.",
+          "Non-web workloads and specialized browser behaviors may still require other tools; Mammoth's focus is on web and AI use cases rather than full replacement of all endpoint security and access layers."
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 4,
+        "rationale": [
+          "Mammoth is explicitly presented as an enterprise browser for zero-trust access control, AI-aware DLP, and compliance, with features like multi-tenant RBAC, trust-circle enforcement, and detailed audit trails.",
+          "It is designed to integrate with enterprise logging, identity, and compliance requirements through real-time logging and audit-friendly policy records.",
+          "The product is newer than some competing enterprise browsers, and while marketing and technical materials are mature, independent large-scale deployment references are still developing."
+        ]
+      }
+    },
+    "confidence": "partial"
+  },
+  "sources": [
+    {
+      "title": "Mammoth Cyber - Home",
+      "url": "https://mammothcyber.com",
+      "notes": "Main product overview describing Mammoth Enterprise AI Browser, zero trust, BYOD readiness, and GenAI policy control."
+    },
+    {
+      "title": "Product | Mammoth Cyber",
+      "url": "https://mammothcyber.com/product/",
+      "notes": "Product page describing Mammoth Enterprise Browser as a zero-trust security solution with DLP, BYOD support, and GenAI controls."
+    },
+    {
+      "title": "BYOD Workforce | Mammoth Cyber",
+      "url": "https://mammothcyber.com/byod-workforce/",
+      "notes": "Explains how Mammoth secures BYOD and contractor access, including data-action controls and session monitoring."
+    },
+    {
+      "title": "GenAI Security | Mammoth Cyber",
+      "url": "https://mammothcyber.com/genai-security/",
+      "notes": "Describes GenAI session isolation, browser-level DLP, private LLM/BYOM support, and full audit trails."
+    },
+    {
+      "title": "Policy Enforcement | Mammoth Cyber",
+      "url": "https://mammothcyber.com/policy-enforcement/",
+      "notes": "Details unified browser governance, identity/posture-based policy, data-handling controls, and SaaS/web application controls."
+    },
+    {
+      "title": "Risk & Compliance | Mammoth Cyber",
+      "url": "https://mammothcyber.com/risk-compliance/",
+      "notes": "Discusses browser-native governance, audit/visibility, consistent access controls, and private-model AI support for compliance."
+    },
+    {
+      "title": "Mammoth Cyber Enterprise Browser - App Store",
+      "url": "https://apps.apple.com/us/app/mammoth-browser/id6736470134",
+      "notes": "App Store listing describing Mammoth Enterprise Browser on iOS, including secure remote access and real-time monitoring."
+    }
+  ],
+  "inherits": "blink"
+}

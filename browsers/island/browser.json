@@ -1,0 +1,153 @@
+{
+  "id": "island",
+  "name": "Island Enterprise Browser",
+  "vendor": "Island",
+  "updated_at": "2026-01-27T20:24:00Z",
+  "engine": [
+    "Blink"
+  ],
+  "platforms": [
+    "windows",
+    "macos",
+    "linux",
+    "ios",
+    "android"
+  ],
+  "tags": [
+    "Enterprise Browser"
+  ],
+  "profile": {
+    "public_description": "Island Enterprise Browser is the ideal enterprise workplace, where accessing apps and data is simple yet fundamentally safe, with security built into the browser itself.",
+    "summary": "Purpose-built enterprise browser that centralizes last-mile zero-trust, DLP, and audit controls in a Chromium-based client, though it introduces a strong dependency on a single vendor for core browsing and access governance.",
+    "popularity": 2,
+    "official_website": "https://www.island.io",
+    "archetype": "enterprise",
+    "primary_differentiator": "Chromium-based enterprise browser that embeds granular last-mile controls, DLP, ZTNA, and high-fidelity logging directly into the browser for all major desktop and mobile platforms."
+  },
+  "deployment": {
+    "posture": "enterprise-native",
+    "rating": 4.6,
+    "summary": "Island is designed from the outset as a managed enterprise browser with centralized policy, integrated DLP and ZTNA, and deep logging, but its agentless, browser-centric approach concentrates access, security, and user experience control in a single vendor platform.",
+    "best_fit_scenarios": [
+      "Enterprises that want the browser to be the primary enforcement point for zero-trust access to SaaS and internal web apps, replacing or reducing reliance on VDI and legacy VPN for day-to-day knowledge work.",
+      "Organizations with strong DLP and compliance requirements that need granular, per-app and per-action controls over copy/paste, download, upload, print, clipboard, screenshot, and data redaction at the last mile.",
+      "Environments with large contractor, BYOD, or hybrid workforces that require controlled access to sensitive apps from unmanaged devices across Windows, macOS, Linux, Chromebooks, iOS, iPadOS, and Android without OS-level agents."
+    ],
+    "caution_scenarios": [
+      "Organizations aiming to keep the browser as a relatively thin client with minimal vendor lock-in, where centralizing access, DLP, ZTNA, and logging in one proprietary browser platform conflicts with architectural or procurement strategy.",
+      "Enterprises that prefer a multi-browser environment or face internal resistance to mandating a single vendor-specific browser as the exclusive tool for all web-based work.",
+      "Use cases that rely heavily on non-web workloads, thick-client applications, or highly customized browser engines where Island's web-centric control model does not cover all critical interaction surfaces.",
+      "Environments where security and audit programs require direct visibility into and control over all control points (for example, independent network DLP, SWG, and EDR) and may resist moving core detection and enforcement logic into a vendor-managed browser."
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 5,
+        "rationale": [
+          "Island embeds last-mile controls directly in the browser, allowing security teams to govern copy, paste, download, upload, printing, screenshot capture, data redaction, watermarking, and MFA insertion for sensitive apps and data.",
+          "The browser integrates exploit prevention, safe browsing, web filtering, and zero trust network access controls so that access to private apps and SaaS resources can be tightly constrained without separate agents.",
+          "Island can enforce application and data boundaries, mask sensitive data until needed, and apply AI-specific DLP controls for generative AI tools, reducing exfiltration risk across multiple egress channels."
+        ]
+      },
+      "reliability": {
+        "score": 4,
+        "rationale": [
+          "Island's Chromium base provides a mature, battle-tested rendering engine, and vendor materials and ecosystem integrations indicate production use across large enterprises and regulated industries.",
+          "The platform supports all major desktop and mobile operating systems and is used as a daily driver in hybrid and BYOD scenarios, suggesting operational stability at scale.",
+          "Because Island is a rapidly evolving enterprise product with continuous feature additions, organizations must actively manage release validation and change windows."
+        ]
+      },
+      "performance": {
+        "score": 4,
+        "rationale": [
+          "Island leverages Chromium for rendering and explicitly positions itself as a native alternative to VDI and heavy remote-desktop workflows, improving perceived performance for SaaS and internal web apps.",
+          "Blocking certain web threats, controlling extensions, and enforcing policy at the browser layer can reduce overhead from separate agents and VPNs and streamline access paths for users.",
+          "Advanced DLP, watermarking, data masking, and monitoring features introduce additional processing; enterprises should benchmark Island under their own workloads."
+        ]
+      },
+      "usability": {
+        "score": 4,
+        "rationale": [
+          "The browser delivers a familiar Chromium-based user experience while adding enterprise-specific UX elements such as policy-driven restrictions, watermarking, and corporate content surfaces.",
+          "Built-in tools like AI Assistant, password manager, clipboard manager, and employee experience optimizations are designed to reduce friction compared to stacking multiple third-party extensions.",
+          "Policy-driven restrictions on everyday actions (for example, download, copy/paste, screenshot) can surprise users if not communicated clearly, and some users may perceive Island as more constrained than unmanaged browsers."
+        ]
+      },
+      "compatibility": {
+        "score": 4,
+        "rationale": [
+          "Island's Chromium engine and support for extensions from Chrome, Edge, Safari, and Firefox provide broad compatibility with web standards and existing browser-based tools.",
+          "The browser is designed to secure access to both SaaS and internal web apps and integrates with mainstream identity providers, enabling use in complex enterprise environments.",
+          "Highly customized or legacy web applications that rely on specific browser quirks may require configuration and testing, and non-web applications remain outside Island's direct compatibility scope."
+        ]
+      },
+      "maintainability": {
+        "score": 5,
+        "rationale": [
+          "Island provides centralized policy management where security policies are defined once and enforced locally within the browser across Windows, macOS, Linux, Chromebooks, iOS, iPadOS, and Android.",
+          "High-fidelity browser activity logs can be streamed to existing SIEM and analytics platforms, and integrations use conditional access and identity provider controls to enforce consistent usage.",
+          "Because enforcement is browser-native and agentless, organizations can manage Island primarily through the browser admin plane and identity provider policies rather than maintaining multiple overlapping endpoint agents and proxies."
+        ]
+      },
+      "portability": {
+        "score": 3,
+        "rationale": [
+          "Island supports all major operating systems, including Windows, macOS, Linux, Chromebooks, iOS, iPadOS, and Android, allowing organizations to apply consistent policies across managed and unmanaged devices.",
+          "Mobile support on iOS, iPadOS, and Android closes the unmanaged mobile gap, enabling extension of browser-level DLP and access controls to mobile workforces and contractors.",
+          "Mandating Island as the sole browser creates vendor lock-in; organizations should weigh portability of policies and data if they later need to migrate to a different browser platform."
+        ]
+      },
+      "functional_suitability": {
+        "score": 5,
+        "rationale": [
+          "Island covers core browsing needs and adds enterprise-focused capabilities such as ZTNA, browser-native DLP, exploit prevention, web filtering, and watermarked, policy-controlled sessions.",
+          "The platform is designed to secure SaaS and internal web apps for employees, contractors, and BYOD users without requiring OS-level agents, portals, or VPNs, aligning closely with modern web-centric work patterns.",
+          "Integrations with identity providers, SIEMs, and external DLP solutions support complex enterprise workflows, including developer CDE scenarios and privileged admin activity governance."
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 5,
+        "rationale": [
+          "Island is marketed exclusively as an enterprise browser, with cross-platform support, centralized security policy definitions, and integrations into identity, SIEM, and analytics systems.",
+          "The browser's last-mile DLP, ZTNA, and audit logging capabilities directly target common enterprise problems such as SaaS data leakage, BYOD access, and contractor governance.",
+          "Vendor collateral and ecosystem documentation present Island as a key component of zero-trust architectures, indicating a mature enterprise posture rather than an experimental product."
+        ]
+      }
+    },
+    "confidence": "partial"
+  },
+  "sources": [
+    {
+      "title": "Island | The Enterprise Browser",
+      "url": "https://www.island.io",
+      "notes": "Main product page describing Island as the ideal enterprise workplace with security built into the browser."
+    },
+    {
+      "title": "Island Platform Support: iOS, iPadOS & Android",
+      "url": "https://www.island.io/press/island-completes-its-platform-support-with-addition-of-ios-ipados-android-capabilities-to-its-market-leading-enterprise-browser",
+      "notes": "Press release confirming support for Windows, macOS, Linux, Chromebooks, iOS, iPadOS, and Android."
+    },
+    {
+      "title": "Zero Trust in the Browser",
+      "url": "https://connect.island.io/hubfs/White%20Papers/Zero%20Trust%20in%20the%20Browser.pdf",
+      "notes": "Whitepaper explaining how Island implements zero trust in the browser with last-mile controls and high-fidelity logging."
+    },
+    {
+      "title": "Zero Trust - Island",
+      "url": "https://www.island.io/solutions/zero-trust",
+      "notes": "Solution page describing Island as a centerpiece of zero trust with granular last-mile controls."
+    },
+    {
+      "title": "Island Product Overview",
+      "url": "https://www.island.io/product",
+      "notes": "Product page detailing ZTNA, exploit prevention, safe browsing, and admin interaction controls."
+    },
+    {
+      "title": "BYOD Workforce | Island",
+      "url": "https://www.island.io/solutions/byod-workforce",
+      "notes": "Describes support for all major platforms and how Island secures BYOD and contractor access."
+    }
+  ],
+  "inherits": "blink"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "tor",
+  "name": "Tor Browser",
+  "vendor": "The Tor Project",
+  "updated_at": "2026-01-21T04:34:56Z",
+  "engine": [
+    "Gecko"
+  ],
+  "platforms": [
+    "windows",
+    "macos",
+    "linux",
+    "android"
+  ],
+  "tags": [
+    "Privacy"
+  ],
+  "profile": {
+    "summary": "Powerful for anonymity and censorship evasion, but generally unsuitable as a primary enterprise browser due to performance, governance, and logging requirements.",
+    "popularity": 1,
+    "official_website": "https://www.torproject.org",
+    "archetype": "research",
+    "primary_differentiator": "Onion routing for anonymity and censorship evasion via the Tor network."
+  },
+  "deployment": {
+    "posture": "specialized",
+    "rating": 0,
+    "summary": "Designed for anonymity, incompatible with enterprise governance and logging requirements."
+  },
+  "inherits": "gecko"
+}

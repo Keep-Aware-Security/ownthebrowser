@@ -1,0 +1,13 @@
+Island Enterprise Browser is a Chromium-based browser created specifically for enterprise use, positioning the browser itself as the primary control point for access, security, and productivity. Island describes the browser as the "desktop of the future," embedding security, governance, and user experience features into the browsing environment instead of relying solely on external agents, VPNs, or VDI. The product explicitly targets large organizations that want to enforce security and compliance at the last mile, where users interact with SaaS and internal web applications.
+
+### Market Position
+
+Island is one of the earliest and best-known vendors in the enterprise browser category and is regularly referenced as a market leader in this space. The company reports adoption across large, respected enterprises, and analyst and ecosystem coverage treat Island as a reference implementation for enterprise browser architecture rather than a consumer product. Its positioning emphasizes replacing or reducing reliance on VDI, legacy VPN, and unmanaged browsers for contractor, BYOD, and privileged-user access to critical SaaS and internal web apps.
+
+### Technical Foundation
+
+Island is built on Chromium with the Blink engine, providing a familiar browsing experience and broad compatibility with web standards and Chrome-style extensions, including support for extensions from Chrome, Edge, Safari, and Firefox. The browser adds an enterprise control plane that enforces granular policies over actions like copy, paste, download, upload, screenshot, printing, data redaction, watermarking, and multi-factor-authentication (MFA) insertion directly at the browser layer. Island also integrates zero trust network access (ZTNA), exploit prevention, safe browsing, and web filtering into the browser, reducing the need for separate agents and proxies for many web-based use cases.
+
+### Enterprise Adoption
+
+Island is marketed and sold only as an enterprise product, with licensing and configuration accessible via an admin console and APIs rather than public consumer downloads. Island's platform supports Windows, macOS, Linux, Chromebooks, iOS, iPadOS, and Android, enabling consistent policy enforcement across managed and unmanaged devices, including BYOD and contractor endpoints. The browser integrates with mainstream identity providers and can feed high-fidelity activity logs into SIEM and analytics platforms, allowing organizations to enforce conditional access policies, ensure that sensitive apps are only reachable through Island, and drive incident response using detailed browser telemetry.

@@ -1,0 +1,13 @@
+SURF Zero Trust Enterprise Browser is a Chromium-based enterprise browser created by SURF Security to bring zero-trust principles directly into the browser, turning it into the primary secure access point for SaaS and on-prem applications. The platform is designed to secure the work environment for anyone, anywhere, on any device, by observing every interaction between users and applications, enforcing policy, and delivering full administrative visibility while emphasizing end-user privacy.
+
+### Market Position
+
+SURF positions its browser and companion extension as a way to simplify and merge control of the security stack down to one access point, reducing the threat landscape and freeing up budget by replacing or augmenting VPN, VDI, CASB, SWG, and traditional endpoint security agents. Marketing and analyst content describe SURF as an enterprise zero-trust browser and extension with security at its core, explicitly targeting distributed workforces, BYOD, contractors, and regulated organizations that need visibility and DLP on unmanaged devices. It competes in the enterprise-browser segment alongside vendors like Island and Talon, but with a stronger emphasis on working across both managed and unmanaged devices.
+
+### Technical Foundation
+
+SURF Full Browser is a Chromium-based browser wrapped with SURF's zero-trust controls, kernel-level identity-first defenses, and policy engine; an associated extension can bring similar enforcement to mainstream browsers on managed devices. SURF enforces data isolation and DLP inside the browser container, with controls to block uploads, downloads, copy/paste, print, screenshots, and screen capture; it can encrypt and scan files, apply watermarks, block password managers, and ensure credentials are not stored locally. The platform adds web filtering, phishing and malvertising protection, posture checks, and auto-encryption of data transfers, combining endpoint-like protection with browser-native governance.
+
+### Enterprise Adoption
+
+SURF is sold as an enterprise solution via direct sales, partners, and marketplaces (for example, AWS Marketplace), and is explicitly described as suitable for DLP, distributed workforce protection, BYOD and contractors, VDI/RBI replacement, insider-threat protection, and GenAI security. The official brochure emphasizes that SURF works across managed and unmanaged devices, provides a sandboxed environment for all company resources without hardware-based endpoint security, and offers the monitoring, session/DLP recording, and application-usage records necessary for regulatory assurance.
