@@ -1,23 +1,108 @@
 {
   "dimensions": [
-    { "key": "security", "title": "Security", "note": "How well does the product reduce attack surface and user exposure by default?" },
-    { "key": "reliability", "title": "Reliability", "note": "Does the product behave predictably across updates and real-world usage?" },
-    { "key": "performance_efficiency", "title": "Performance Efficiency", "note": "How efficiently does the product use system and network resources under normal workloads?" },
-    { "key": "usability", "title": "Usability", "note": "How intuitive is the experience for users with varying technical maturity?" },
-    { "key": "compatibility", "title": "Compatibility", "note": "How well does the product work with modern websites, SaaS tools, and extensions?" },
-    { "key": "maintainability", "title": "Maintainability", "note": "How easy is it for IT to configure, update, and support at scale?" },
-    { "key": "portability", "title": "Portability", "note": "How consistently does the product behave across platforms and environments?" },
-    { "key": "functional_suitability", "title": "Functional Suitability", "note": "Does the product align with core business browsing needs without excess or gaps?" },
-    { "key": "enterprise_readiness", "title": "Enterprise Readiness", "note": "Is the product designed with enterprise governance, compliance, and support expectations in mind?" }
+    {
+      "key": "security",
+      "title": "Security",
+      "note": "How well does the product reduce attack surface and user exposure by default?",
+      "scopeNote": "Focuses on technical resistance to compromise. Does not include manageability, policy enforcement, or vendor support—those are evaluated under Enterprise Readiness.",
+      "questions": [
+        { "id": "S1", "title": "Component Isolation", "description": "Modular or third-party components are isolated from the core runtime and each other." },
+        { "id": "S2", "title": "Least Privilege & Permissions", "description": "The system enforces least-privilege access for components, users, and integrations." },
+        { "id": "S3", "title": "Secure Update & Patch Mechanism", "description": "Security updates are authenticated, timely, and resistant to rollback or tampering." },
+        { "id": "S4", "title": "Exploit & Misuse Resistance", "description": "The system includes layered defenses against common exploitation or misuse patterns." }
+      ]
+    },
+    {
+      "key": "reliability",
+      "title": "Reliability",
+      "note": "Does the product behave predictably across updates and real-world usage?",
+      "scopeNote": "Measures continued operation under failure conditions. Does not include raw speed or resource consumption—those are evaluated under Performance.",
+      "questions": [
+        { "id": "R1", "title": "Fault Tolerance", "description": "The system continues to operate acceptably when components fail or misbehave." },
+        { "id": "R2", "title": "Recoverability", "description": "The system can be restored to a correct state within predictable time bounds." },
+        { "id": "R3", "title": "Stability Under Load", "description": "The system maintains stability under expected and peak operational conditions." }
+      ]
+    },
+    {
+      "key": "performance_efficiency",
+      "title": "Performance Efficiency",
+      "note": "How efficiently does the product use system and network resources under normal workloads?",
+      "scopeNote": "Evaluates resource efficiency and predictable behavior under load. Does not include fault recovery or continued operation during failures—those are evaluated under Reliability.",
+      "questions": [
+        { "id": "P1", "title": "Resource Efficiency", "description": "The system uses CPU, memory, storage, and network resources proportionately to its function." },
+        { "id": "P2", "title": "Performance Predictability", "description": "System performance is consistent and degrades gracefully under stress." }
+      ]
+    },
+    {
+      "key": "usability",
+      "title": "Usability",
+      "note": "How intuitive is the experience for users with varying technical maturity?",
+      "scopeNote": "Assesses user comprehension and error recovery. Does not include whether the system has all needed features—that's evaluated under Functional Suitability.",
+      "questions": [
+        { "id": "U1", "title": "Safe & Understandable Interaction", "description": "Users can understand system actions, permissions, and consequences without undue effort." },
+        { "id": "U2", "title": "Error Prevention & Recovery", "description": "The system helps users avoid errors and recover safely when errors occur." }
+      ]
+    },
+    {
+      "key": "compatibility",
+      "title": "Compatibility",
+      "note": "How well does the product work with modern websites, SaaS tools, and extensions?",
+      "scopeNote": "Addresses integration with external systems and peaceful co-existence in shared environments. Does not include cross-platform deployment flexibility—that's evaluated under Portability.",
+      "questions": [
+        { "id": "C1", "title": "Interoperability", "description": "The system interoperates cleanly with external systems via stable, documented interfaces." },
+        { "id": "C2", "title": "Co-Existence", "description": "The system operates without degrading or being degraded by other systems in the same environment." }
+      ]
+    },
+    {
+      "key": "maintainability",
+      "title": "Maintainability",
+      "note": "How easy is it for IT to configure, update, and support at scale?",
+      "scopeNote": "Covers diagnosability and safe updates. Does not include runtime fault tolerance—that's evaluated under Reliability.",
+      "questions": [
+        { "id": "M1", "title": "Modularity & Separation of Concerns", "description": "The system is structured to allow components to be changed with minimal side effects." },
+        { "id": "M2", "title": "Diagnosability & Observability", "description": "Failures and abnormal behaviors can be detected, diagnosed, and understood." },
+        { "id": "M3", "title": "Change Safety", "description": "Updates and configuration changes can be applied with low risk of regression." }
+      ]
+    },
+    {
+      "key": "portability",
+      "title": "Portability",
+      "note": "How consistently does the product behave across platforms and environments?",
+      "scopeNote": "Concerns the system's ability to move across platforms and be replaced. Does not include runtime integration with other systems—that's evaluated under Compatibility.",
+      "questions": [
+        { "id": "T1", "title": "Environment Independence", "description": "The system can operate across supported environments with minimal modification." },
+        { "id": "T2", "title": "Replaceability", "description": "The system can be replaced or removed without excessive disruption." }
+      ]
+    },
+    {
+      "key": "functional_suitability",
+      "title": "Functional Suitability",
+      "note": "Does the product align with core business browsing needs without excess or gaps?",
+      "scopeNote": "Evaluates whether the system has the right features and they work correctly. Does not include user experience or learnability—those are evaluated under Usability.",
+      "questions": [
+        { "id": "F1", "title": "Functional Completeness", "description": "The system provides all essential capabilities required for its intended purpose." },
+        { "id": "F2", "title": "Functional Correctness", "description": "The system's functions produce correct and expected results." }
+      ]
+    },
+    {
+      "key": "enterprise_readiness",
+      "title": "Enterprise Readiness",
+      "note": "Is the product designed with enterprise governance, compliance, and support expectations in mind?",
+      "scopeNote": "Evaluates organizational deployment concerns: policy control, fleet management, and vendor accountability. Does not include technical security mechanisms—those are evaluated under Security.",
+      "questions": [
+        { "id": "E1", "title": "Policy & Fleet Management", "description": "The system supports centralized configuration, policy enforcement, and fleet-wide management appropriate for enterprise scale." },
+        { "id": "E2", "title": "Compliance & Audit Support", "description": "The system provides logging, reporting, and controls that support regulatory compliance and security audits." }
+      ]
+    }
   ],
   "scale": {
     "type": "likert_1_5",
     "levels": [
-      { "level": 1, "label": "Absent" },
-      { "level": 2, "label": "Weak" },
-      { "level": 3, "label": "Adequate" },
-      { "level": 4, "label": "Strong" },
-      { "level": 5, "label": "Hardened" }
+      { "level": 1, "label": "Absent", "description": "Critical gaps that may disqualify for enterprise use" },
+      { "level": 2, "label": "Weak", "description": "Below expectations, requires compensating controls" },
+      { "level": 3, "label": "Adequate", "description": "Meets baseline requirements with room for improvement" },
+      { "level": 4, "label": "Strong", "description": "Above-average capability meeting enterprise requirements well" },
+      { "level": 5, "label": "Hardened", "description": "Exceptional capability with proactive, defense-in-depth approach" }
     ],
     "overall_note": "Given the intended deployment context, what is the overall maturity/risk posture and the operational effort required to keep behavior predictable at scale?"
   }

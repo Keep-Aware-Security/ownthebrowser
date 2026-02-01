@@ -1,0 +1,18 @@
+{
+  "AI Browser": {
+    "label": "AI Browser",
+    "description": "Browser with integrated AI assistant or agentic capabilities that can understand page content, automate tasks, or act on behalf of the user."
+  },
+  "Privacy": {
+    "label": "Privacy",
+    "description": "Browser with built-in and visible tracking protection, fingerprinting defenses, or anonymity features that prioritize user privacy over telemetry."
+  },
+  "Open Source": {
+    "label": "Open Source",
+    "description": "Browser with publicly available source code that can be audited, modified, and redistributed under an open-source license."
+  },
+  "Enterprise Browser": {
+    "label": "Enterprise Browser",
+    "description": "Browser purpose-built for enterprise deployment with centralized management, policy enforcement, governance controls, and security features designed for organizational use."
+  }
+}

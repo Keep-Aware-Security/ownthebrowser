@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "engine.json",
+  "version": "1.0.0",
+  "title": "Browser Engine",
+  "description": "Schema for browser engine base content and metadata",
+  "type": "object",
+  "required": ["id", "name"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "enum": ["blink", "gecko", "webkit"],
+      "description": "Unique identifier for the engine"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name (e.g., 'Chromium/Blink', 'Gecko', 'WebKit')"
+    },
+    "vendor": {
+      "type": "string",
+      "description": "Primary maintainer organization"
+    },
+    "documentation_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Link to official engine documentation"
+    },
+    "policy_infrastructure": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Policy mechanisms supported (e.g., 'admx', 'mdm', 'json')"
+    }
+  }
+}

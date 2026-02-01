@@ -14,23 +14,40 @@ This repository provides machine-readable browser profiles that help organizatio
 
 ```
 ownthebrowser/
-├── schemas/           # JSON Schema definitions
-│   └── browser.json   # Browser profile schema (v1.0.0)
-├── browsers/          # Individual browser profiles
-│   ├── chrome.json
-│   ├── edge.json
-│   ├── firefox.json
+├── browsers/              # Browser profile directories
+│   ├── chrome/
+│   │   ├── browser.json   # Core structured data
+│   │   ├── description.md # Profile overview
+│   │   ├── deployment.md  # Deployment guidance
+│   │   └── risk-analysis.md # Risk assessment
+│   ├── edge/
+│   ├── firefox/
 │   └── ...
-└── data/              # Reference data
-    └── dimensions.json
+├── data/                  # Reference data
+│   ├── dimensions.json    # Assessment dimensions
+│   ├── tags.json          # Browser category tags
+│   └── capabilities.json  # Enterprise capabilities
+└── schemas/               # JSON Schema definitions
+    └── browser.json       # Browser profile schema
 ```
+
+## Browser Directory Structure
+
+Each browser has its own directory containing:
+
+| File | Purpose | Required |
+|------|---------|----------|
+| `browser.json` | Core structured data (identity, assessment, sources) | Yes |
+| `description.md` | Browser overview, history, market position | No |
+| `deployment.md` | IT deployment guidance, may include tables | No |
+| `risk-analysis.md` | Security risks and considerations | No |
 
 ## Browser Profile Schema
 
-Each browser profile includes:
+The `browser.json` file includes:
 
 - **Identity**: id, name, vendor, engine, platforms
-- **Profile**: description, summary, archetype, differentiator, popularity
+- **Profile**: summary, archetype, differentiator, popularity
 - **Deployment**: posture, rating, best-fit and caution scenarios
 - **Assessment**: 9 dimensions scored 1-5 with rationale
 - **Sources**: citations for claims

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "browser.json",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Browser",
   "description": "Schema for browser profile and ratings data",
   "type": "object",
@@ -64,10 +64,17 @@
       },
       "description": "Supported operating system platforms"
     },
+    "tags": {
+      "type": ["array", "null"],
+      "items": {
+        "type": "string"
+      },
+      "description": "Optional tags for categorization (e.g., 'chromium-based', 'privacy-focused', 'enterprise-browser')"
+    },
     "profile": {
       "type": "object",
       "properties": {
-        "description": {
+        "public_description": {
           "type": "string",
           "description": "Vendor-provided description of the browser (one sentence max)"
         },
@@ -275,6 +282,113 @@
             "type": "string"
           }
         }
+      }
+    },
+    "content": {
+      "type": "object",
+      "description": "Convention-based markdown content files. These are stored as separate .md files alongside browser.json, not embedded in JSON.",
+      "properties": {
+        "description": {
+          "const": "description.md",
+          "description": "Markdown mini blog post about the browser - its history, purpose, and significance"
+        },
+        "deployment": {
+          "const": "deployment.md",
+          "description": "Markdown guidance for enterprise IT teams deploying this browser"
+        },
+        "risk_analysis": {
+          "const": "risk-analysis.md",
+          "description": "Markdown assessment of key risks and considerations for enterprise deployment"
+        },
+        "configuration": {
+          "const": "configuration.md",
+          "description": "Browser-specific admin configuration and policy documentation"
+        },
+        "extensions": {
+          "const": "extensions.md",
+          "description": "Browser-specific extension management documentation"
+        },
+        "privacy": {
+          "const": "privacy.md",
+          "description": "Browser-specific privacy controls documentation"
+        },
+        "agentic": {
+          "const": "agentic.md",
+          "description": "Browser-specific AI and automation features documentation"
+        }
+      }
+    },
+    "inherits": {
+      "type": "string",
+      "enum": ["blink", "gecko", "webkit"],
+      "description": "Engine ID to inherit base content from. Enables content inheritance from engines/ directory."
+    },
+    "configuration": {
+      "type": "object",
+      "description": "Structured data about admin configuration capabilities",
+      "properties": {
+        "management_console": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "url": { "type": "string", "format": "uri" },
+            "availability": {
+              "type": "string",
+              "enum": ["free", "paid", "enterprise-only", "none"]
+            }
+          }
+        },
+        "ai_controls": {
+          "type": "object",
+          "properties": {
+            "has_ai_features": { "type": "boolean" },
+            "can_disable": { "type": "boolean" },
+            "policy_coverage": {
+              "type": "string",
+              "enum": ["full", "partial", "none"]
+            }
+          }
+        }
+      }
+    },
+    "extension_management": {
+      "type": "object",
+      "description": "Structured data about extension governance capabilities",
+      "properties": {
+        "store_name": { "type": "string" },
+        "store_url": { "type": "string", "format": "uri" },
+        "governance_features": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["allowlist", "blocklist", "force_install", "risk_scoring", "approval_workflow"]
+          }
+        }
+      }
+    },
+    "privacy_controls": {
+      "type": "object",
+      "description": "Structured data about privacy control capabilities",
+      "properties": {
+        "telemetry_default": {
+          "type": "string",
+          "enum": ["extensive", "moderate", "minimal", "none"]
+        },
+        "telemetry_disableable": { "type": "boolean" },
+        "tracking_protection": { "type": "boolean" }
+      }
+    },
+    "agentic": {
+      "type": "object",
+      "description": "Structured data about AI and automation capabilities",
+      "properties": {
+        "has_features": { "type": "boolean" },
+        "maturity": {
+          "type": "string",
+          "enum": ["production", "beta", "experimental", "none"]
+        },
+        "assistant_name": { "type": "string" },
+        "provider": { "type": "string" }
       }
     }
   }
