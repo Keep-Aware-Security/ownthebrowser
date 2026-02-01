@@ -1,0 +1,135 @@
+{
+  "id": "prisma-access",
+  "name": "Prisma Access Browser",
+  "vendor": "Palo Alto Networks",
+  "updated_at": "2026-01-28T15:40:00Z",
+  "engine": [
+    "Blink"
+  ],
+  "platforms": [
+    "windows",
+    "macos"
+  ],
+  "tags": [
+    "Enterprise Browser"
+  ],
+  "profile": {
+    "public_description": "Prisma Access Browser is a SASE-native secure enterprise browser that embeds threat prevention, DLP, and zero-trust controls directly into a custom Chromium build.",
+    "summary": "SASE-native secure enterprise browser that turns a custom Chromium client into a policy and DLP enforcement point for Prisma SASE, ideal for Palo Alto-centric shops that want unified browser, network, and AI-aware data protection.",
+    "popularity": 1,
+    "official_website": "https://www.paloaltonetworks.com/sase/prisma-browser",
+    "archetype": "enterprise",
+    "primary_differentiator": "Only SASE-native secure browser tightly integrated with Prisma SASE, combining last-mile data controls, threat prevention, and GenAI-aware DLP without requiring separate decryption or disjoint tooling."
+  },
+  "deployment": {
+    "posture": "enterprise-native",
+    "rating": 4.2,
+    "summary": "Prisma Access Browser is built as an enterprise-managed browser within Prisma SASE, offering strong last-mile controls and AI-aware DLP for Palo Alto environments, but it assumes Prisma Access and CDSS as the surrounding fabric.",
+    "best_fit_scenarios": [
+      "Enterprises already invested in Prisma Access / Prisma SASE that want browser security, DLP, and GenAI controls managed as part of a single SASE policy stack rather than a standalone enterprise browser.",
+      "Organizations replacing or reducing VDI and legacy VPN by delivering secure access to SaaS, web, and private apps (including RDP/SSH/VNC) directly in a locked-down browser workspace.",
+      "Security programs focused on AI-related web threats and data leakage that want PrecisionAI-driven phishing/malware detection and enterprise DLP classifiers applied at the browser without adding separate inspection points."
+    ],
+    "caution_scenarios": [
+      "Enterprises that are not standardized on Palo Alto SASE/CDSS and prefer a vendor-agnostic enterprise browser; Prisma Browser's value is tightly coupled to Prisma Access and Palo Alto's cloud services.",
+      "Enterprises that prefer a multi-browser environment or face internal resistance to mandating a single vendor-specific browser as the exclusive tool for all web-based work.",
+      "Architectures that deliberately separate browser, network, and DLP vendors for risk-distribution or regulatory reasons may be cautious about concentrating last-mile enforcement, threat prevention, and DLP into a single integrated stack.",
+      "Organizations heavily dependent on non-web thick clients where a browser-centric model secures only part of the interaction surface and must be complemented by traditional endpoint and network controls."
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 5,
+        "rationale": [
+          "Prisma Browser extends zero-trust principles to the browser, enforcing policy per session, user, app, device posture, and location, and acting as a gatekeeper for Prisma Access ZTNA to SaaS, web, and private apps.",
+          "It integrates Palo Alto Enterprise DLP and PrecisionAI-based classifiers to inspect content and context (using over 1,000 data identifiers) and prevent data loss, script-scraper abuse, and account takeover attempts without decrypting traffic.",
+          "Built-in protections include blocking sensitive data entry into unauthorized apps, file upload/download controls, copy/paste/print/text-masking policies, step-up MFA for sensitive actions, session recording, browser asset protection, and real-time alerts for abnormal activity."
+        ]
+      },
+      "reliability": {
+        "score": 4,
+        "rationale": [
+          "The browser is based on Chromium and described as a production-grade client for managed and unmanaged devices within Prisma SASE, with distributed infrastructure designed for high uptime.",
+          "Integration with Strata Cloud Manager and Prisma Access centralizes policy and monitoring; documented customer stories indicate use at scale for replacing VDI and securing hybrid work.",
+          "As part of an actively evolving SASE platform, organizations must manage upgrades and new features through existing Palo Alto change-management processes, especially where strict DLP and remote-protocol controls are in place."
+        ]
+      },
+      "performance": {
+        "score": 4,
+        "rationale": [
+          "Prisma Browser leverages Chromium and Palo Alto's globally distributed SASE infrastructure, with marketing material claiming improved app performance versus legacy VDI and complex SSE chains.",
+          "Enforcement at the browser and SASE fabric allows advanced inspections and DLP without additional on-device agents or hair-pinning all traffic through separate proxies, which can lower latency and complexity.",
+          "Heavy last-mile controls (DLP scanning, recording, MFA prompts) introduce some overhead; enterprises should benchmark under real workloads, especially for graphics-heavy apps and long RDP/SSH sessions."
+        ]
+      },
+      "usability": {
+        "score": 4,
+        "rationale": [
+          "Users work in a familiar Chromium-like browser with extensions supported, bookmarks and profiles managed centrally, and app access exposed through browser-based workflows rather than separate VDI clients or portals.",
+          "For remote users and contractors, Prisma Browser provides a single entry point while security teams orchestrate policies, MFA, and data controls behind the scenes.",
+          "Last-mile restrictions on copy/paste, file transfer, printing, or text input may surprise users if not communicated and tuned with per-app policies, and some flows (for example GenAI prompts) may require additional approvals or MFA."
+        ]
+      },
+      "compatibility": {
+        "score": 4,
+        "rationale": [
+          "Being a custom Chromium, Prisma Browser works with Chrome-compatible plugins and provides a familiar web-compatibility profile for SaaS and internal web apps.",
+          "It natively integrates with Prisma Access to secure RDP/SSH/VNC and other remote protocols inside the browser, extending compatibility beyond pure HTTP(S) SaaS use cases.",
+          "Aggressive DLP and last-mile controls can interfere with some application features (for example, complex uploads, browser-based IDEs) until policies are tuned and exceptions defined."
+        ]
+      },
+      "maintainability": {
+        "score": 5,
+        "rationale": [
+          "Prisma Browser is managed through the same Prisma SASE and Strata Cloud Manager consoles that organizations already use for network security, enabling single-policy definition across devices, apps, and browser actions.",
+          "Security teams can define and update controls for file upload/download, copy/paste, printing, text masking, MFA, and privileged-access workflows centrally, applying them by user, group, application, location, and device posture.",
+          "Because policy, logging, and threat intelligence are delivered from the cloud, changes to DLP classifiers, PrecisionAI models, and threat-prevention logic can be rolled out without per-device reconfiguration."
+        ]
+      },
+      "portability": {
+        "score": 3,
+        "rationale": [
+          "Current public materials emphasize desktop platforms (Windows, macOS), and Prisma Browser secures both managed and unmanaged devices, extending SASE policies to BYOD and third-party endpoints via the browser.",
+          "Formal mobile-browser parity is less prominent in documentation than desktop use; organizations with heavy iOS/Android browser-only workflows should validate roadmap and current support before assuming full parity.",
+          "Mandating Prisma Browser as the sole browser creates vendor lock-in; organizations should weigh portability of policies and data if they later need to migrate to a different browser platform or SASE vendor."
+        ]
+      },
+      "functional_suitability": {
+        "score": 5,
+        "rationale": [
+          "Prisma Browser covers core browsing and adds SASE-native capabilities: ZTNA for private apps, web and SaaS control, integrated DLP, AI/PrecisionAI-driven threat prevention, and advanced phishing and malware defenses.",
+          "It supports use cases such as third-party/contractor enablement, VDI reduction, BYOD, secure GenAI adoption, encrypted-traffic threat visibility, and business-continuity access plans.",
+          "For Palo Alto shops, alignment with existing CDSS, Enterprise DLP, and Strata Cloud Manager significantly increases functional suitability relative to bolt-on enterprise browsers that require separate management and integration layers."
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 5,
+        "rationale": [
+          "Prisma Browser is delivered as an integral part of Prisma SASE, not a consumer product, and is backed by Palo Alto's existing enterprise support, education, and lifecycle.",
+          "It provides granular last-mile controls, auditing, and privileged-access protections as a core SASE component enabling comprehensive, policy-driven protection for any device.",
+          "Rapid enterprise interest, documented reference use cases, and integration with existing DLP, ZTNA, and threat-prevention services indicate a mature enterprise posture, particularly for organizations already aligned with Prisma SASE."
+        ]
+      }
+    },
+    "confidence": "partial"
+  },
+  "sources": [
+    {
+      "title": "Secure Enterprise Browser | Prisma Browser",
+      "url": "https://www.paloaltonetworks.com/sase/prisma-browser",
+      "notes": "Official product page summarizing use cases, last-mile controls, and managed/unmanaged device support."
+    },
+    {
+      "title": "Prisma Browser - Technical Overview",
+      "url": "https://docs.paloaltonetworks.com/prisma-access-browser",
+      "notes": "Documentation describing Prisma Browser as a SASE-native secure browser, architecture, and integration with Prisma SASE/CDSS."
+    },
+    {
+      "title": "The Missing Piece of SASE - Prisma Access Browser",
+      "url": "https://www.paloaltonetworks.com/blog/2024/08/sase-prisma-access-browser-now-available/",
+      "notes": "Blog detailing pillars (last-mile data protections, UX, SASE integration) and PrecisionAI threat detection."
+    }
+  ],
+  "inherits": "blink"
+}
