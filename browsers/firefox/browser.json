@@ -1,0 +1,139 @@
+{
+  "id": "firefox",
+  "name": "Mozilla Firefox",
+  "vendor": "Mozilla",
+  "updated_at": "2026-01-27T07:22:00Z",
+  "engine": [
+    "Gecko"
+  ],
+  "platforms": [
+    "windows",
+    "macos",
+    "linux",
+    "ios",
+    "android"
+  ],
+  "profile": {
+    "public_description": "Firefox delivers secure, resilient, and privacy-focused browsing at scale, with enterprise policies in both Firefox and Firefox Extended Support Release (ESR) for flexibility, control, and transparency in a trusted, open-source browser.",
+    "summary": "Open-source, privacy-oriented enterprise-capable browser with ESR and robust policy support, though it lacks a native cloud management plane and may require more integration work in Microsoft- or Google-centric environments.",
+    "popularity": 3,
+    "official_website": "https://www.firefox.com/en-US/browsers/enterprise/",
+    "archetype": "mainstream",
+    "primary_differentiator": "Non-Chromium, open-source browser with ESR releases and a strong emphasis on privacy and data sovereignty for organizations."
+  },
+  "deployment": {
+    "posture": "enterprise-tolerable",
+    "rating": 3.8,
+    "summary": "Firefox and Firefox ESR offer enterprise installers, policy enforcement, and an Enterprise Policy Engine, but organizations must rely on general-purpose MDM/endpoint tools rather than a dedicated browser cloud console.",
+    "best_fit_scenarios": [
+      "Organizations prioritizing privacy, open-source transparency, and data sovereignty, especially in sectors where independent verification of browser behavior is important.",
+      "Enterprises that want ESR-style stability with predictable, long-term support windows for testing and controlled rollout of browser changes.",
+      "Environments that intentionally maintain a non-Chromium browser alongside Chromium-based options to reduce monoculture and validate application compatibility across engines."
+    ],
+    "caution_scenarios": [
+      "Organizations seeking a native, vendor-hosted browser management console comparable to cloud-based management offerings from other large vendors.",
+      "Enterprises heavily standardized on Microsoft 365 or Google Workspace that depend on deep, proprietary integrations at the browser layer and expect tight coupling with those ecosystems.",
+      "Environments with limited operational capacity to manage multiple release channels, policy mechanisms, and add-on governance without centralized browser-specific tooling."
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 4,
+        "rationale": [
+          "Firefox implements a multi-process architecture with Site Isolation that loads each site in its own operating system process, limiting cross-site data exposure and mitigating Spectre-like attacks.",
+          "Mozilla ships frequent security updates and provides ESR builds that receive regular security fixes while minimizing feature churn in managed environments.",
+          "Add-on ecosystem risk and the absence of a proprietary endpoint security stack integration mean organizations often rely on external controls to fully govern browser threats and extension behavior."
+        ]
+      },
+      "reliability": {
+        "score": 4,
+        "rationale": [
+          "Firefox follows a documented release cycle with a four-week rapid release and an ESR channel with annual major releases and regular security updates.",
+          "Mozilla provides enterprise deployment guidance emphasizing testing, pilot groups, and controlled rollout of MSI-based deployments.",
+          "Operational practices such as managing ESR vs rapid channels and coordinating add-on compatibility require some additional process maturity compared to browsers with integrated cloud governance portals."
+        ]
+      },
+      "performance": {
+        "score": 3,
+        "rationale": [
+          "Gecko's multi-process model and Site Isolation are designed for secure and stable rendering, with performance tuned for modern web workloads.",
+          "Mozilla notes that Site Isolation can also provide stability and performance benefits by isolating crashes and distributing loads across processes.",
+          "Performance characteristics may differ from Chromium-based browsers for some applications, and organizations may need to validate resource usage and responsiveness under their typical SaaS and line-of-business workloads."
+        ]
+      },
+      "usability": {
+        "score": 4,
+        "rationale": [
+          "Firefox provides a traditional tabbed browsing experience with familiar UI conventions and cross-platform consistency on Windows, macOS, and Linux.",
+          "Enterprise policies allow administrators to preconfigure home pages, search providers, extensions, and other settings to align with organizational standards.",
+          "Users accustomed to Chromium-based browsers may encounter minor differences in developer tools, settings layout, or extension availability, requiring some adaptation."
+        ]
+      },
+      "compatibility": {
+        "score": 4,
+        "rationale": [
+          "Firefox is a standards-compliant browser with long-standing support for modern web technologies, and most mainstream web applications test against it.",
+          "Non-Chromium engine behavior can surface compatibility issues in environments where in-house or third-party apps implicitly rely on Chromium-specific quirks or APIs.",
+          "Firefox ESR provides a stable baseline for compatibility testing, but organizations must validate applications when moving between ESR major versions."
+        ]
+      },
+      "maintainability": {
+        "score": 4,
+        "rationale": [
+          "The Enterprise Policy Engine supports cross-platform policy control via Group Policy (Windows), configuration profiles (macOS), and `policies.json` files (Linux), providing a single conceptual model for administrators.",
+          "Mozilla offers MSI installers, ADMX templates, and documentation to integrate Firefox into existing software deployment and configuration workflows.",
+          "Lack of a dedicated, browser-specific cloud management console means policy orchestration, reporting, and exception workflows must be built using general-purpose configuration and endpoint tools."
+        ]
+      },
+      "portability": {
+        "score": 4,
+        "rationale": [
+          "Firefox is available for Windows, macOS, Linux, iOS, and Android, with Firefox for Enterprise focusing on desktop platforms for managed deployments.",
+          "Policy mechanisms (GPO, profiles, `policies.json`) cover the main desktop platforms, and documentation exists for cross-platform policy deployment.",
+          "Enterprise management capabilities are more fully articulated for desktop than for mobile, and organizations often manage mobile Firefox through general MDM app policies rather than Firefox-specific enterprise features."
+        ]
+      },
+      "functional_suitability": {
+        "score": 4,
+        "rationale": [
+          "Firefox meets core enterprise browsing needs, including support for modern SaaS applications, certificates, proxies, and authentication mechanisms common in corporate environments.",
+          "Enterprise policies can control many functional aspects such as extensions, search, home pages, and updates, enabling alignment with security baselines.",
+          "Some advanced enterprise browser capabilities, such as native DLP integrations or identity-aware isolation tied to a single vendor ecosystem, are not provided as first-party features and instead rely on external tools."
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 4,
+        "rationale": [
+          "Firefox for Enterprise and ESR are positioned explicitly for organizational use, with MSI installers, ESR release cycles, and documented enterprise deployment and policy guides.",
+          "The Enterprise Policy Engine and policy templates provide centralized configuration controls that can be integrated with existing GPO and MDM infrastructure.",
+          "Mozilla's enterprise support program and documentation are maturing, but Firefox does not offer a proprietary browser management cloud comparable to some other vendors' dedicated consoles."
+        ]
+      }
+    },
+    "confidence": "verified"
+  },
+  "sources": [
+    {
+      "title": "Use Firefox or ESR as your enterprise browser for security at scale",
+      "url": "https://www.firefox.com/en-US/browsers/enterprise/",
+      "notes": "Official Firefox for Enterprise page describing Firefox and Firefox ESR, release cycles, enterprise positioning, and support options."
+    },
+    {
+      "title": "Enforce policies on Firefox for Enterprise",
+      "url": "https://support.mozilla.org/en-US/kb/enforcing-policies-firefox-enterprise",
+      "notes": "Support article describing how to enforce Firefox policies via Group Policy or configuration files."
+    },
+    {
+      "title": "Policy Templates for Firefox",
+      "url": "https://mozilla.github.io/policy-templates/",
+      "notes": "Reference for available Firefox enterprise policies and their applicability across versions and platforms."
+    },
+    {
+      "title": "Installation and updates | Firefox for Enterprise",
+      "url": "https://support.mozilla.org/en-US/products/firefox-enterprise/installation-and-updates",
+      "notes": "Documentation on MSI installers, ESR release cycle, and deployment considerations for Firefox in enterprise environments."
+    }
+  ],
+  "inherits": "gecko"
+}

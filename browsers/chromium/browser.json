@@ -1,0 +1,166 @@
+{
+  "id": "chromium",
+  "name": "Chromium",
+  "vendor": "Chromium Project",
+  "updated_at": "2026-01-27T07:31:00Z",
+  "engine": [
+    "Blink"
+  ],
+  "platforms": [
+    "windows",
+    "macos",
+    "linux",
+    "android"
+  ],
+  "tags": [
+    "Open Source"
+  ],
+  "profile": {
+    "public_description": "Chromium is an open-source browser project that aims to build a safer, faster, and more stable way for all users to experience the web.",
+    "summary": "Open-source Chromium codebase and browser with strong security architecture and policy hooks, though standalone deployments lack vendor support, SLAs, and managed distribution channels expected in enterprise fleets.",
+    "popularity": 3,
+    "official_website": "https://www.chromium.org",
+    "archetype": "research",
+    "primary_differentiator": "Open-source, upstream browser codebase that underpins many commercial browsers, offering transparency and extensibility rather than a fully supported enterprise product."
+  },
+  "deployment": {
+    "posture": "enterprise-tolerable",
+    "rating": 3,
+    "summary": "Chromium exposes the same policy mechanisms and sandbox architecture used by downstream browsers, but using it directly in enterprises typically requires in-house builds, packaging, and support in place of a vendor-managed channel.",
+    "best_fit_scenarios": [
+      "Security research labs or engineering teams that need direct access to Chromium source, debugging symbols, and custom builds for testing web security features and exploits.",
+      "Organizations building custom, hardened, or kiosk-style browser distributions on top of Chromium where they control the build pipeline, policies, and distribution.",
+      "Environments that require deep transparency into browser code, including the ability to audit, modify, and recompile the engine to meet specialized compliance or functional needs."
+    ],
+    "caution_scenarios": [
+      "Standard enterprises seeking a turnkey, vendor-supported browser with official binaries, SLAs, and integrated cloud management consoles.",
+      "Organizations without in-house engineering capacity to track Chromium releases, backport patches, manage update channels, and maintain policy templates over time.",
+      "Regulated environments where auditors expect formal vendor support, documented enterprise deployment guides, and certified compliance artifacts for the browser itself."
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 4,
+        "rationale": [
+          "Chromium implements a multi-process architecture with process-level sandboxing for renderer and plugin processes, leveraging OS-level mitigations to contain compromised code.",
+          "The open-source model allows rapid community review of security changes and adoption of new mitigations, and many commercial browsers rely on Chromium's security fixes.",
+          "Standalone deployments rely on the integrator to configure policies, compile with correct options, and ensure timely patching; there is no vendor-operated update service or security program dedicated to Chromium binaries."
+        ]
+      },
+      "reliability": {
+        "score": 3,
+        "rationale": [
+          "Chromium's architecture and testing infrastructure are designed for stability, with extensive automated tests and continuous integration across platforms.",
+          "The project supports building on Windows, macOS, Linux, Android, and ChromeOS-related targets, and serves as the base for browsers that are widely used in production.",
+          "Reliability in enterprise use depends on how organizations package, test, and distribute their own builds, as there is no vendor-curated stable channel for Chromium that enterprises can simply consume."
+        ]
+      },
+      "performance": {
+        "score": 4,
+        "rationale": [
+          "Chromium is engineered to be performant, with multi-process parallelism, optimized rendering pipelines, and a focus on responsiveness as reflected in project goals and documentation.",
+          "Commercial browsers that ship on Chromium demonstrate that the engine can handle large-scale, performance-sensitive workloads across consumer and enterprise use cases.",
+          "Performance in custom builds can vary if organizations add patches, change compiler flags, or disable features; there is no single, vendor-tuned baseline for enterprise deployments of upstream Chromium."
+        ]
+      },
+      "usability": {
+        "score": 3,
+        "rationale": [
+          "Chromium provides a familiar Chrome-like UI when built with the default frontend, but branding, UX polish, and feature sets are often added by downstream vendors.",
+          "The open-source UI can be used as-is or modified to fit custom workflows, but there is no central UX roadmap or support channel for end-user experience in standalone Chromium.",
+          "Enterprises treating Chromium as a user-facing browser must take ownership of training, UI customization, and support for any differences from commercial builds."
+        ]
+      },
+      "compatibility": {
+        "score": 5,
+        "rationale": [
+          "Chromium is the reference implementation for Blink and modern web standards used by Chrome and other major browsers, so most web applications designed for Chromium engines are directly compatible.",
+          "New web platform features are often implemented in Chromium first or early, giving it strong alignment with current standards.",
+          "Compatibility issues typically arise only when custom patches, feature flags, or non-standard configurations are applied in local builds."
+        ]
+      },
+      "maintainability": {
+        "score": 3,
+        "rationale": [
+          "Chromium includes a policy engine and policy template support in the source tree, with documentation on how to design and implement enterprise policies.",
+          "Policy templates (ADM/ADMX and others) can be generated from the `policy_templates` project, allowing integrators to expose configuration options in enterprise tools.",
+          "Maintaining Chromium in production requires ongoing work to regenerate templates, integrate new policies, rebuild binaries, and distribute updates, which shifts maintenance burden from a browser vendor to the enterprise or integrator."
+        ]
+      },
+      "portability": {
+        "score": 4,
+        "rationale": [
+          "Chromium supports builds for Windows, macOS, Linux, Android, and ChromeOS-related targets, with unified source that can be configured for multiple platforms.",
+          "The same core engine and policy infrastructure can, in principle, be applied across these platforms by organizations that invest in multi-platform build pipelines.",
+          "There is no official cross-platform binary distribution for all OSes; portability depends on internal build expertise and tooling."
+        ]
+      },
+      "functional_suitability": {
+        "score": 4,
+        "rationale": [
+          "Chromium implements the core browsing capabilities found in commercial Chromium-based browsers, including support for modern web APIs, TLS, and extension frameworks.",
+          "The source tree includes enterprise policy hooks and extension controls, enabling integrators to meet many functional requirements for corporate browsing when properly configured.",
+          "Out-of-the-box builds lack vendor-specific integrations (for example, managed identity portals, DLP, or cloud consoles), so additional tooling is required to meet full enterprise functional needs."
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 3,
+        "rationale": [
+          "The Chromium project provides the policy engine, templates, and design guidance that commercial browsers use as the basis for enterprise features.",
+          "Open-source documentation describes how to design policies, bind them to user or device contexts, and expose configuration through templates, giving technically capable organizations the building blocks for governance.",
+          "There is no official enterprise support program, SLA, or managed distribution for Chromium itself, so its effective enterprise readiness depends heavily on the integrator's capabilities rather than a vendor's managed service."
+        ]
+      }
+    },
+    "confidence": "partial"
+  },
+  "sources": [
+    {
+      "title": "Chromium Home",
+      "url": "https://www.chromium.org/Home/",
+      "notes": "Official overview of the Chromium project, its goals, and links to design and architecture documentation."
+    },
+    {
+      "title": "chromium/src - Git at Google",
+      "url": "https://chromium.googlesource.com/chromium/src/",
+      "notes": "Source repository for Chromium, including high-level description and instructions for accessing code."
+    },
+    {
+      "title": "Chromium Docs – README",
+      "url": "https://chromium.googlesource.com/chromium/src/+/HEAD/docs/README.md",
+      "notes": "Entry point for Chromium documentation covering architecture, testing, and developer guides."
+    },
+    {
+      "title": "Sandbox – Chromium Docs",
+      "url": "https://chromium.googlesource.com/chromium/src/+/HEAD/docs/design/sandbox.md",
+      "notes": "Technical description of Chromium's sandbox architecture and its process-based isolation model."
+    },
+    {
+      "title": "Enterprise policies – Chromium Docs",
+      "url": "https://chromium.googlesource.com/chromium/src/+/HEAD/docs/enterprise/policies.md",
+      "notes": "Explains how enterprise policies are represented and applied within Chromium."
+    },
+    {
+      "title": "Policy Templates – The Chromium Projects",
+      "url": "https://www.chromium.org/administrators/policy-templates/",
+      "notes": "Describes generating and using enterprise policy templates (ADM/ADMX and others) from the Chromium codebase."
+    },
+    {
+      "title": "How to design an enterprise policy – Chromium Docs",
+      "url": "https://chromium.googlesource.com/chromium/src/+/refs/tags/128.0.6613.5/docs/enterprise/policy_design.md",
+      "notes": "Guidance on designing enterprise policies and integrating them into Chromium."
+    },
+    {
+      "title": "Get the Code: Checkout, Build, & Run Chromium",
+      "url": "https://www.chromium.org/developers/how-tos/get-the-code/",
+      "notes": "Instructions for checking out, building, and running Chromium on multiple platforms."
+    },
+    {
+      "title": "Chromium | Google Open Source Projects",
+      "url": "https://opensource.google/projects/chromium",
+      "notes": "High-level description of Chromium as the open-source browser behind Chrome and other browsers."
+    }
+  ],
+  "inherits": "blink"
+}

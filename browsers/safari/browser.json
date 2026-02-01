@@ -1,0 +1,149 @@
+{
+  "id": "safari",
+  "name": "Safari",
+  "vendor": "Apple",
+  "updated_at": "2026-01-27T07:27:00Z",
+  "engine": [
+    "WebKit"
+  ],
+  "platforms": [
+    "macos",
+    "ios"
+  ],
+  "tags": [
+    "Privacy"
+  ],
+  "profile": {
+    "public_description": "Safari is Apple's fast, energy-efficient browser that delivers advanced privacy protections and seamless integration across Apple devices.",
+    "summary": "Platform-native browser for Apple devices with strong OS-level sandboxing and growing declarative management controls, though its enterprise governance depends heavily on Apple's broader device management ecosystem and is limited to Apple platforms.",
+    "popularity": 4,
+    "official_website": "https://www.apple.com/safari/",
+    "archetype": "mainstream",
+    "primary_differentiator": "Platform-native browser for macOS, iOS, and iPadOS with deep OS integration, power efficiency, and privacy features managed through Apple's device management framework."
+  },
+  "deployment": {
+    "posture": "enterprise-tolerable",
+    "rating": 3.6,
+    "summary": "Safari can be governed effectively on managed Apple devices using configuration profiles, MDM, and declarative browsing controls, but lacks a cross-platform browser console and is constrained to Apple ecosystems.",
+    "best_fit_scenarios": [
+      "Organizations standardized on Apple devices (macOS, iOS, iPadOS) that use MDM and Apple Business Manager to centrally manage configuration profiles and restrictions.",
+      "Environments that rely on Safari/WebKit as the default browser and in-app web view engine for line-of-business apps on iPhone, iPad, and Mac, and want to enforce consistent browsing and content restrictions.",
+      "Regulated sectors where device-level sandboxing, strict app runtime controls, and OS-integrated content filtering are key components of the security architecture."
+    ],
+    "caution_scenarios": [
+      "Enterprises requiring a single browser platform and management model that spans Windows, macOS, and non-Apple devices; Safari is not available outside Apple's ecosystem.",
+      "Organizations needing rich, browser-native logging, extension governance, and DLP integrations comparable to dedicated enterprise browsers, rather than relying on OS-level and MDM controls.",
+      "Environments with limited MDM maturity, where configuration profiles and declarative management are not yet consistently deployed and monitored for compliance."
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 4,
+        "rationale": [
+          "Safari benefits from Apple's app sandboxing and runtime protections on iOS, iPadOS, and macOS, which restrict web content processes and reduce the impact of exploitation.",
+          "Configuration profiles and restrictions payloads allow administrators to control features such as fraudulent website warnings, cookie policies, and access to specific URLs.",
+          "Browser-native security controls are closely coupled with OS-level mechanisms, and fine-grained, browser-only controls (for example, per-tenant DLP or dedicated security telemetry) are not documented at the level of some enterprise browsers."
+        ]
+      },
+      "reliability": {
+        "score": 4,
+        "rationale": [
+          "Safari is updated as part of regular OS updates on Apple platforms, and security fixes are delivered through both platform updates and browser-specific patches.",
+          "Apple's controlled hardware and software ecosystem tends to produce predictable behavior for Safari across supported OS versions when combined with tested configuration profiles.",
+          "Reliability is linked to OS upgrade and patch cycles, so organizations must align browser stability with their platform update strategies and test Safari changes alongside OS changes."
+        ]
+      },
+      "performance": {
+        "score": 4,
+        "rationale": [
+          "Safari is optimized for Apple hardware, with Apple marketing emphasizing energy efficiency and close integration with the system's graphics and networking stacks.",
+          "In enterprise contexts, this translates into lower battery consumption on mobile devices and generally responsive behavior for typical SaaS and web workloads on Apple platforms.",
+          "Performance characteristics are strong within the Apple ecosystem but cannot be leveraged on non-Apple platforms, which may limit standardization options for cross-platform fleets."
+        ]
+      },
+      "usability": {
+        "score": 4,
+        "rationale": [
+          "Safari provides a consistent, native user experience across macOS, iOS, and iPadOS, with features such as tab groups, Reading List, and iCloud Keychain integration.",
+          "MDM and configuration profiles allow preconfiguration of home pages, bookmarks, and restrictions, aligning the UI with corporate requirements.",
+          "Users operating in mixed-browser environments may encounter small differences in behavior or feature availability compared to non-Apple browsers, which may require some training or documentation."
+        ]
+      },
+      "compatibility": {
+        "score": 4,
+        "rationale": [
+          "Safari implements modern web standards and is the baseline for many mobile and desktop web experiences on Apple devices.",
+          "Some enterprise or legacy applications may assume Chromium-specific behavior or APIs not present in WebKit, requiring validation and possible use of alternative browsers on macOS when compatibility issues arise.",
+          "On iOS and iPadOS, all browsers use WebKit under the hood, so Safari's compatibility characteristics often reflect the platform's effective web runtime; however, management controls are concentrated in Safari-specific payloads."
+        ]
+      },
+      "maintainability": {
+        "score": 4,
+        "rationale": [
+          "Safari settings can be centrally managed via configuration profiles and declarative browsing payloads deployed through MDM, using the same mechanisms as other Apple device settings.",
+          "Apple's deployment documentation and third-party MDM guidance provide detailed lists of Safari keys (for example, cookie policy, autofill, extension toggles) that can be set and enforced.",
+          "There is no Safari-specific, multi-OS management console; governance relies on the broader Apple device management stack, which must already be in place and properly maintained."
+        ]
+      },
+      "portability": {
+        "score": 2,
+        "rationale": [
+          "Safari is available only on Apple platforms (macOS, iOS, iPadOS, and related devices such as Apple Vision Pro), and cannot be used to standardize browser behavior on non-Apple endpoints.",
+          "Within the Apple ecosystem, declarative browsing management enables consistent Safari behavior across device types, including bookmarks, home pages, and certain restrictions.",
+          "Organizations with significant Windows or non-Apple device populations must use additional browsers to achieve cross-platform coverage, complicating browser standardization and policy uniformity."
+        ]
+      },
+      "functional_suitability": {
+        "score": 4,
+        "rationale": [
+          "Safari supports core enterprise browsing functions, including TLS, authentication to SaaS applications, and integration with system keychain and certificates.",
+          "Configuration profiles and browsing payloads allow control over cookies, autofill, content filters, bookmarks, and private browsing, aligning Safari behavior with enterprise policies.",
+          "Some enterprise browser-specific capabilities, such as tenant-aware isolation or embedded DLP policies, are not exposed as Safari-native features and instead rely on OS-level and third-party tools."
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 4,
+        "rationale": [
+          "Safari is a first-party component of Apple's platforms, and Apple Platform Deployment guidance documents how to manage Safari through device management profiles and MDM.",
+          "New declarative Safari browsing and extension management configurations provide more granular, scalable ways to control the browsing experience and extension usage across managed Apple devices.",
+          "Enterprise readiness is strong within Apple environments but limited by the lack of cross-platform availability and the absence of a browser-specific enterprise console separate from device management."
+        ]
+      }
+    },
+    "confidence": "partial"
+  },
+  "sources": [
+    {
+      "title": "Apple Platform Deployment",
+      "url": "https://support.apple.com/guide/deployment/welcome/web",
+      "notes": "Entry point for deploying Apple hardware, software, apps, and services, including guidance on managing Safari via device management."
+    },
+    {
+      "title": "Plan your configuration profiles for Apple devices",
+      "url": "https://support.apple.com/guide/deployment/plan-your-configuration-profiles-dep9a318a393/web",
+      "notes": "Explains how to use configuration profiles and payloads, including Safari, to manage settings on Apple devices."
+    },
+    {
+      "title": "Intro to device management profiles",
+      "url": "https://support.apple.com/guide/deployment/intro-to-device-management-profiles-depc0aadd3fe/web",
+      "notes": "Describes configuration profiles (`.mobileconfig`), payloads, and how they are used with MDM to manage Apple devices."
+    },
+    {
+      "title": "Safari browsing management declarative configuration for Apple devices",
+      "url": "https://support.apple.com/guide/deployment/safari-browsing-management-declarative-depb514ccd65/web",
+      "notes": "Documents declarative configuration for Safari browsing management on iPhone, iPad, Mac, and Apple Vision Pro."
+    },
+    {
+      "title": "Safari extensions management declarative configuration for Apple devices",
+      "url": "https://support.apple.com/guide/deployment/safari-extensions-management-declarative-depff7fad9d8/web",
+      "notes": "Explains declarative management of Safari extensions on enrolled Apple devices."
+    },
+    {
+      "title": "Security of runtime process in iOS, iPadOS, and visionOS",
+      "url": "https://support.apple.com/guide/security/security-of-runtime-process-sec15bfe098e/web",
+      "notes": "Apple security guide explaining sandboxing and runtime protections applied to apps like Safari."
+    }
+  ],
+  "inherits": "webkit"
+}

@@ -1,0 +1,153 @@
+{
+  "id": "edge",
+  "name": "Microsoft Edge",
+  "vendor": "Microsoft",
+  "updated_at": "2026-01-27T07:21:00Z",
+  "engine": [
+    "Blink"
+  ],
+  "platforms": [
+    "windows",
+    "macos",
+    "linux",
+    "ios",
+    "android"
+  ],
+  "tags": [
+    "AI Browser",
+    "Enterprise Browser"
+  ],
+  "profile": {
+    "public_description": "Your AI browser — a new way to pilot the web.",
+    "summary": "Tightly integrated, policy-rich enterprise browser with strong Microsoft 365 and security stack alignment, though its deep ecosystem and AI integrations require deliberate governance of data flows and vendor dependency.",
+    "popularity": 4,
+    "official_website": "https://www.microsoft.com/en-us/edge/business",
+    "archetype": "mainstream",
+    "primary_differentiator": "Deep integration with Microsoft 365, Entra ID, and Defender, including a dedicated Edge for Business experience and cloud-based management service."
+  },
+  "deployment": {
+    "posture": "enterprise-native",
+    "rating": 4.2,
+    "summary": "Edge for Business combines Chromium-based compatibility with extensive GPO/MDM policy coverage and a cloud Edge management service, but its strongest capabilities depend on Microsoft 365 and Entra ID integration that must be governed explicitly.",
+    "best_fit_scenarios": [
+      "Organizations standardized on Microsoft 365, Entra ID, and Defender that want the browser to participate directly in their existing identity, DLP, and threat protection stack.",
+      "Enterprises seeking centralized, cloud-based browser policy management and extension governance through the Edge management service in the Microsoft 365 admin center.",
+      "Environments that need native browser enforcement of Microsoft Purview DLP, Insider Risk Management, and tenant restriction controls to reduce data exfiltration paths from SaaS applications."
+    ],
+    "caution_scenarios": [
+      "Privacy-sensitive deployments where default telemetry, SmartScreen, and AI-driven features may send content or metadata to Microsoft cloud services unless explicitly constrained by policy.",
+      "Organizations aiming for minimal dependency on a single vendor's identity, productivity, and security ecosystem, or that follow a strict multi-browser, multi-vendor strategy.",
+      "Regulated environments that require fine-grained control over AI assistants, web content analysis, and cross-tenant access, where Edge's AI and multi-tenant capabilities must be carefully configured and continuously reviewed."
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 4,
+        "rationale": [
+          "Chromium-based multi-process sandboxing, Microsoft Defender SmartScreen, automatic HTTPS upgrades, and continuous threat intelligence updates reduce common web attack paths by default.",
+          "Native integration with Microsoft Purview DLP, Insider Risk Management, Conditional Access, and tenant restrictions allows browser-level enforcement of data protections in Microsoft-centric environments.",
+          "AI features, built-in password management, sync, and telemetry require explicit policy configuration to align with strict confidentiality and data residency requirements."
+        ]
+      },
+      "reliability": {
+        "score": 4,
+        "rationale": [
+          "Edge follows the Chromium release train with documented deployment and update guidance, providing a predictable update and servicing model for enterprises.",
+          "The Edge management service and Intune/GPO controls allow staged deployment, policy-based control of updates, and rollback strategies where needed.",
+          "Tight coupling to Windows and the wider Microsoft stack can introduce coordination overhead when OS, browser, and security features update on intersecting cadences."
+        ]
+      },
+      "performance": {
+        "score": 4,
+        "rationale": [
+          "As a Chromium-based browser, Edge generally inherits efficient rendering and JavaScript performance characteristics suited to modern web applications.",
+          "Microsoft documents features such as sleeping tabs and background process controls that can be tuned via policy to reduce resource consumption on managed devices.",
+          "Additional enterprise and AI features, including security scanning and content analysis, may introduce incremental CPU, memory, or network overhead in heavily instrumented deployments."
+        ]
+      },
+      "usability": {
+        "score": 4,
+        "rationale": [
+          "Edge provides a familiar Chromium-style user interface on all major platforms, with a distinct Edge for Business work profile experience and automatic separation of work and personal windows.",
+          "Integration with Microsoft 365 (for example, profile-based sign-in, single sign-on, and access to work resources) aligns with user expectations in Microsoft-centric organizations.",
+          "Enterprise policies, branding, and AI controls can significantly modify the user experience, which may require communication and training to avoid confusion, especially around work vs personal contexts."
+        ]
+      },
+      "compatibility": {
+        "score": 5,
+        "rationale": [
+          "Because Edge is based on Chromium and Blink, it is broadly compatible with modern web standards and SaaS applications designed for Chromium browsers.",
+          "Support for the Chrome extension ecosystem allows use of most existing browser extensions, subject to enterprise policy controls.",
+          "Legacy compatibility scenarios, such as sites requiring Internet Explorer-specific behavior, are handled via documented modes and may require additional configuration."
+        ]
+      },
+      "maintainability": {
+        "score": 5,
+        "rationale": [
+          "Microsoft provides comprehensive policy references, ADMX templates, and MDM support, enabling fine-grained configuration and locking of Edge settings across Windows and other platforms.",
+          "The Edge management service in the Microsoft 365 admin center offers a dedicated browser management plane with policy prioritization, extension request workflows, and organizational branding.",
+          "Cloud policies, GPO, and MDM can coexist, and Microsoft documents precedence rules and conflict behavior to help admins maintain predictable configurations at scale."
+        ]
+      },
+      "portability": {
+        "score": 4,
+        "rationale": [
+          "Edge for Business is available on Windows, macOS, Linux, iOS, and Android, with support for work profiles and Entra ID-based sign-in on all major platforms.",
+          "Policies can be applied via Intune, Edge management, and other MDM solutions across heterogeneous device fleets, including mobile.",
+          "While feature parity is generally strong, some enterprise and management capabilities are documented primarily for Windows and may arrive later or in different form on non-Windows platforms."
+        ]
+      },
+      "functional_suitability": {
+        "score": 4,
+        "rationale": [
+          "Edge covers core enterprise browsing needs and adds work/personal separation, integrated PDF viewing, web app support, and Microsoft 365-aware features suited to business workflows.",
+          "Native hooks into Purview DLP, Insider Risk Management, Conditional Access, and tenant restrictions allow functional enforcement of many browser-side controls without third-party tooling.",
+          "Some advanced capabilities, particularly AI features and deep security integrations, depend on specific Microsoft 365 licensing (for example E3/E5) and may be unavailable or limited in other licensing models."
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 5,
+        "rationale": [
+          "Edge for Business is explicitly positioned as a secure enterprise browser, with documented deployment guidance, recommended configuration baselines, and alignment to Microsoft 365 E3/E5 scenarios.",
+          "The combination of Edge management service, rich policy set, Entra ID integration, Purview DLP, Insider Risk Management, Conditional Access, and Defender integration provides a comprehensive governance and compliance framework at the browser layer.",
+          "Cloud, GPO, and MDM management patterns are all supported and documented, allowing enterprises to integrate Edge into existing configuration management and compliance processes."
+        ]
+      }
+    },
+    "confidence": "verified"
+  },
+  "sources": [
+    {
+      "title": "Microsoft Edge Enterprise documentation",
+      "url": "https://learn.microsoft.com/en-us/deployedge/",
+      "notes": "Entry point for Edge in the enterprise, covering deployment, configuration, security, privacy, and policy references."
+    },
+    {
+      "title": "Microsoft Edge Browser Policy Documentation",
+      "url": "https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies",
+      "notes": "Comprehensive list of Microsoft Edge policies for GPO/MDM and cloud policy configuration."
+    },
+    {
+      "title": "Microsoft Edge for Business",
+      "url": "https://www.microsoft.com/en-us/edge/business",
+      "notes": "Official product page positioning Edge for Business as a secure enterprise AI browser, with work/personal separation and enterprise controls."
+    },
+    {
+      "title": "Microsoft Edge management service",
+      "url": "https://learn.microsoft.com/en-us/deployedge/microsoft-edge-management-service",
+      "notes": "Documentation for the cloud-based Edge management service, including policy priority, extension requests, and branding."
+    },
+    {
+      "title": "Microsoft Edge for Business recommended configuration settings",
+      "url": "https://learn.microsoft.com/en-us/deployedge/microsoft-edge-for-business-config-recommendations",
+      "notes": "Recommended Edge for Business configurations for E3/E5 environments, including Purview DLP, Insider Risk, Conditional Access, and Edge management service guidance."
+    },
+    {
+      "title": "Configure Microsoft Edge for Windows with policy settings",
+      "url": "https://learn.microsoft.com/en-us/deployedge/configure-microsoft-edge",
+      "notes": "Guidance for configuring Microsoft Edge using Group Policy and MDM, including policy precedence considerations."
+    }
+  ],
+  "inherits": "blink"
+}

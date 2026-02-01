@@ -1,0 +1,130 @@
+{
+  "id": "chrome",
+  "name": "Google Chrome",
+  "vendor": "Google",
+  "updated_at": "2026-01-21T04:34:56Z",
+  "engine": [
+    "Blink"
+  ],
+  "platforms": [
+    "windows",
+    "macos",
+    "linux",
+    "ios",
+    "android"
+  ],
+  "tags": [
+    "AI Browser",
+    "Enterprise Browser"
+  ],
+  "profile": {
+    "public_description": "The fast and secure web browser, built to be yours.",
+    "summary": "De facto enterprise browser standard with comprehensive policy controls and extensive vendor support, though its market dominance introduces data-sharing considerations requiring deliberate configuration in privacy-sensitive environments.",
+    "popularity": 5,
+    "official_website": "https://www.google.com/chrome",
+    "archetype": "mainstream",
+    "primary_differentiator": "Dominant market share with comprehensive policy controls and extensive third-party vendor support."
+  },
+  "deployment": {
+    "posture": "enterprise-native",
+    "rating": 4.2,
+    "summary": "The Chromium project established the foundation for enterprise browser deployments through extensive administrative policy configurations, and Chrome Browser Cloud Management now provides a centralized console for fleet governance.",
+    "best_fit_scenarios": [
+      "Organizations standardized on Google Workspace or requiring seamless Google service integration",
+      "Enterprises needing mature, well-documented MDM/GPO policy management",
+      "Environments prioritizing web compatibility and minimal site breakage"
+    ],
+    "caution_scenarios": [
+      "Privacy-sensitive deployments concerned with telemetry and data collection defaults",
+      "Organizations seeking to minimize vendor lock-in or Google ecosystem dependency",
+      "Environments where browser monoculture presents unacceptable single-point-of-failure risk"
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 4,
+        "rationale": [
+          "Rapid security patching with staged rollouts",
+          "Site isolation and sandboxing set industry standard",
+          "Default telemetry and sync features warrant policy attention"
+        ]
+      },
+      "reliability": {
+        "score": 5,
+        "rationale": [
+          "Highly stable with predictable release cadence",
+          "Extensive QA and staged rollouts minimize disruption"
+        ]
+      },
+      "performance": {
+        "score": 3,
+        "rationale": [
+          "Competitive rendering speed",
+          "Historically memory-intensive; recent efficiency improvements ongoing"
+        ]
+      },
+      "usability": {
+        "score": 5,
+        "rationale": [
+          "Familiar, polished interface with minimal learning curve",
+          "Sets UX expectations for the browser category"
+        ]
+      },
+      "compatibility": {
+        "score": 5,
+        "rationale": [
+          "De facto web standard",
+          "Sites are typically developed and tested against Chrome first"
+        ]
+      },
+      "maintainability": {
+        "score": 5,
+        "rationale": [
+          "Comprehensive enterprise policy support and ADMX templates",
+          "Chrome Browser Cloud Management simplifies fleet governance"
+        ]
+      },
+      "portability": {
+        "score": 5,
+        "rationale": [
+          "Available on all major platforms with consistent feature parity",
+          "Sync capabilities across devices"
+        ]
+      },
+      "functional_suitability": {
+        "score": 4,
+        "rationale": [
+          "Core browsing and enterprise needs fully met",
+          "Some bundled features may require policy-based disabling"
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 5,
+        "rationale": [
+          "Comprehensive ADMX/GPO templates and Chrome Browser Cloud Management provide mature, centralized policy enforcement and fleet-wide configuration at enterprise scale.",
+          "Extensive audit logging, reporting capabilities, and compliance controls supported through CBCM and integration with enterprise security tooling."
+        ]
+      }
+    },
+    "confidence": "verified"
+  },
+  "sources": [
+    {
+      "title": "Chrome Enterprise Core",
+      "url": "https://chromeenterprise.google/products/chrome-enterprise-core/",
+      "notes": "Official product page for Chrome Browser Cloud Management (now Chrome Enterprise Core), covering centralized policy management, extension controls, and fleet reporting."
+    },
+    {
+      "title": "Chromium Policy Templates",
+      "url": "https://www.chromium.org/administrators/policy-templates/",
+      "notes": "Official Chromium documentation for ADMX/ADM/JSON policy templates used to configure enterprise deployments across Windows, Mac, and Linux."
+    },
+    {
+      "title": "Chrome Enterprise Policy List",
+      "url": "https://chromeenterprise.google/policies/",
+      "notes": "Complete reference of all available Chrome Enterprise policies for browser and ChromeOS management."
+    }
+  ],
+  "inherits": "blink"
+}
