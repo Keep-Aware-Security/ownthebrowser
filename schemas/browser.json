@@ -390,6 +390,16 @@
         "assistant_name": { "type": "string" },
         "provider": { "type": "string" }
       }
+    },
+    "sub_pages": {
+      "type": "object",
+      "description": "Controls which sub-page tabs are enabled (content ready for display)",
+      "properties": {
+        "configuration": { "type": "boolean", "default": false },
+        "extensions": { "type": "boolean", "default": false },
+        "privacy": { "type": "boolean", "default": false },
+        "agentic": { "type": "boolean", "default": false }
+      }
     }
   }
 }
