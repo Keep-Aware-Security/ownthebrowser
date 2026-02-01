@@ -1,0 +1,7 @@
+{
+  "id": "gecko",
+  "name": "Gecko",
+  "vendor": "Mozilla",
+  "documentation_url": "https://support.mozilla.org/en-US/products/firefox-enterprise",
+  "policy_infrastructure": ["admx", "mdm", "json"]
+}

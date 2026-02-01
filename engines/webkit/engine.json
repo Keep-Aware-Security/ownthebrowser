@@ -1,0 +1,7 @@
+{
+  "id": "webkit",
+  "name": "WebKit",
+  "vendor": "Apple",
+  "documentation_url": "https://support.apple.com/guide/deployment/",
+  "policy_infrastructure": ["mdm", "plist"]
+}

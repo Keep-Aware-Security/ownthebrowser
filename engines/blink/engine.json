@@ -1,0 +1,7 @@
+{
+  "id": "blink",
+  "name": "Chromium/Blink",
+  "vendor": "Google",
+  "documentation_url": "https://www.chromium.org/administrators/",
+  "policy_infrastructure": ["admx", "mdm", "json", "registry"]
+}
