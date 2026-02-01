@@ -1,0 +1,13 @@
+ChatGPT Atlas is OpenAI's AI-native browser that integrates ChatGPT directly into the browsing surface, announced and released for macOS in October 2025. It is built on Chromium, with OpenAI using a custom integration layer called OWL (OpenAI's web layer) that treats Chromium as an isolated background service while Atlas provides the main UI and agent orchestration. Atlas is designed so that the agent understands the current page, user intent, and prior browsing sessions, and can search, summarize, and take actions without requiring users to switch between a separate ChatGPT tab and a traditional browser.
+
+### Market Position
+
+Atlas enters a growing category of agentic browsers, where the agent is central to the user experience rather than an add-on sidebar. OpenAI offers Atlas generally to consumers and in beta for Business and Enterprise customers. Atlas is intended to strengthen OpenAI's position in the AI ecosystem by controlling the browser surface, similar to how Chrome, Safari, and Edge reinforce their respective platform vendors.
+
+### Technical Foundation
+
+Under the hood, Atlas uses Chromium for rendering but decouples the browser interface from the engine through OWL, which runs Chromium as an isolated background service and composites UI elements into a unified view for the agent. This architecture allows Atlas to maintain a modern SwiftUI/AppKit-style UI on macOS while leveraging Chromium's site compatibility and process model, and uses StoragePartition to isolate agent sessions so temporary agent contexts do not persist cookies or local storage. OpenAI's safety design for agent mode includes restrictions such as preventing the agent from running code in the browser, downloading files, installing extensions, or accessing other applications or the local file system, and pausing for confirmation on certain sensitive sites.
+
+### Enterprise Adoption
+
+OpenAI describes Atlas for Enterprise as being in beta for Business and Enterprise customers, with management capabilities exposed through ChatGPT enterprise admin controls: permissions, roles, and feature toggles for agent mode and browsing-related features. Help-center content shows that administrators can manage or disable agent mode, configure data retention, and control whether Atlas becomes the default browser, but there is not yet a standalone, browser-specific policy catalog comparable to traditional enterprise browsers.

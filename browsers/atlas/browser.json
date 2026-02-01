@@ -1,0 +1,134 @@
+{
+  "id": "atlas",
+  "name": "ChatGPT Atlas",
+  "vendor": "OpenAI",
+  "updated_at": "2026-01-27T07:36:00Z",
+  "engine": [
+    "Blink"
+  ],
+  "platforms": [
+    "macos",
+    "windows"
+  ],
+  "tags": [
+    "AI Browser"
+  ],
+  "profile": {
+    "public_description": "ChatGPT Atlas is a browser with ChatGPT built in, so you can search, browse, and get tasks done in one place.",
+    "summary": "AI-first Chromium-based browser with deep ChatGPT integration and early enterprise controls, though browser memory and agent mode introduce new privacy and security risks that currently require substantial compensating controls.",
+    "popularity": 2,
+    "official_website": "https://openai.com/index/introducing-chatgpt-atlas/",
+    "archetype": "AI Browser",
+    "primary_differentiator": "Agentic browser built around ChatGPT, with browser memory and agent mode that allow ChatGPT to understand browsing context and perform multi-step tasks directly in the browser."
+  },
+  "deployment": {
+    "posture": "consumer-first",
+    "rating": 2.3,
+    "summary": "Atlas provides enterprise admin controls and an agent constrained by documented safeguards, but its browser memory and agent mode substantially expand what the browser can observe and do, making external controls and careful scoping mandatory in most enterprises.",
+    "best_fit_scenarios": [
+      "Innovation programs and AI pilot groups exploring agent-driven workflows such as research, summarization, and form automation under controlled conditions.",
+      "Enterprises already invested in ChatGPT Enterprise that want a tightly integrated browser surface for AI-assisted search, page summarization, and task execution with unified admin and data controls.",
+      "Security-mature organizations with SASE/SWG/DLP/CASB stacks that can monitor and regulate Atlas traffic and agent actions while using Atlas selectively for specific roles or business units."
+    ],
+    "caution_scenarios": [
+      "Environments with strict SSO isolation and session-boundary requirements, where an agent that sees logged-in pages and can act across tabs materially weakens traditional browser session boundaries.",
+      "Highly regulated sectors that require deterministic, auditable control of data flows, AI memory, and agent capabilities, beyond what is currently documented for Atlas browser memory and agent mode.",
+      "Organizations seeking a conventional enterprise browser with mature ADMX/MDM templates, fine-grained browser policy catalogs, and long-established fleet-management patterns independent of a specific AI platform."
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 2,
+        "rationale": [
+          "Atlas inherits Chromium's sandboxing and site compatibility but adds browser memory and agent mode, giving ChatGPT broad visibility into browsing activity and the ability to take actions within logged-in sites.",
+          "OpenAI's safety design for agent mode blocks code execution in the browser, file downloads, extension installation, and access to other apps or the file system, and requires user oversight on certain sensitive sites, but these safeguards do not eliminate prompt-injection or URL-based agent hijacking risks.",
+          "Agentic browsers like Atlas are vulnerable to prompt injection and malicious URLs that can trick the agent into unintended actions, and browser memory creates persistent behavioral profiles that raise privacy and data-exposure risk."
+        ]
+      },
+      "reliability": {
+        "score": 3,
+        "rationale": [
+          "Atlas uses Chromium via OWL as an isolated background service, allowing Atlas to remain responsive even if Chromium processes crash, and to keep its UI codebase separate and more manageable.",
+          "Early reviews describe Atlas as generally stable for everyday browsing, with integrated ChatGPT and dual views of AI answers plus raw search results functioning as expected.",
+          "Because agent behavior and browser memory rely on evolving models and cloud services, reliability of AI tasks can change over time, and enterprises should expect non-deterministic behavior and occasional regressions in complex agent flows."
+        ]
+      },
+      "performance": {
+        "score": 3,
+        "rationale": [
+          "Chromium provides a performant base, and OWL's separation of the UI from Chromium aims to improve launch speed and responsiveness while isolating crashes.",
+          "Atlas must continuously capture page state, composite UI elements, and send context to ChatGPT for agent mode and browser memory, which introduces extra CPU, memory, and network overhead compared to a non-agentic browser.",
+          "Early user reports suggest that page rendering remains smooth, but heavy AI usage can increase resource consumption and latency, especially on complex sites or during multi-step agent tasks."
+        ]
+      },
+      "usability": {
+        "score": 4,
+        "rationale": [
+          "Atlas presents a Chrome-like browsing experience with ChatGPT integrated into the omnibox and side panels, allowing users to search, ask questions about the current page, and see AI answers alongside raw results.",
+          "Agent mode lets users delegate tasks (for example, filling forms, booking appointments, navigating sites) and receive contextual suggestions based on current and past browsing, reducing context switching.",
+          "Users must understand when the agent is acting, how browser memory tracks their behavior, and how to disable or constrain agent mode, which adds cognitive overhead and requires user education in enterprise deployments."
+        ]
+      },
+      "compatibility": {
+        "score": 4,
+        "rationale": [
+          "Because Atlas is built on Chromium, it supports modern web standards and behaves similarly to Chrome on most sites, and can import bookmarks and settings from existing browsers.",
+          "Agent mode can operate on top of standard web flows, opening tabs, navigating sites, and filling forms in ways compatible with most SaaS applications.",
+          "Some complex or security-sensitive workflows may not behave as expected when the agent is active, and OpenAI explicitly limits automated actions on certain financial or highly sensitive sites, which may constrain automation in enterprise applications."
+        ]
+      },
+      "maintainability": {
+        "score": 2,
+        "rationale": [
+          "OpenAI provides help-center content describing Atlas for Enterprise, where admin controls tie into the existing ChatGPT Enterprise admin model for permissions and feature toggles.",
+          "There is no publicly documented ADMX/MDM template catalog specifically for Atlas, and organizations must rely on ChatGPT admin controls, MDM profiles, and network security policies rather than a dedicated browser policy set.",
+          "The rapid evolution of agent features, browser memory behavior, and enterprise controls will require ongoing administrative attention and coordinated changes between security, IT, and business stakeholders."
+        ]
+      },
+      "portability": {
+        "score": 3,
+        "rationale": [
+          "Atlas launched first on macOS and is expected to expand to additional platforms; current usage and documentation focus on desktop environments rather than a full multi-platform suite.",
+          "Being Chromium-based, Atlas can in principle be ported to other desktop platforms while reusing much of the engine layer.",
+          "Until there is consistent support and management guidance across Windows, macOS, and potentially mobile platforms, enterprises will need to treat Atlas as one of several browsers rather than a universal standard."
+        ]
+      },
+      "functional_suitability": {
+        "score": 4,
+        "rationale": [
+          "Atlas supports core browsing functions and adds features like in-page Q&A, summarization, retrieval of past browsing context, and agent-driven workflow automation, which directly serve research and productivity use cases.",
+          "Browser memory and agent mode allow ChatGPT to retain context across sessions and automate tasks such as form completion and booking, aligning with many knowledge-worker scenarios.",
+          "Because detailed enterprise constraints (for example, role-based limits on agent abilities, formal approval workflows for automations) are still emerging, some high-sensitivity workflows may remain unsuitable for Atlas until richer controls are available."
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 2,
+        "rationale": [
+          "Atlas for Enterprise is documented as being in beta for Business and Enterprise customers, with admin controls, roles, and feature toggles integrated into the ChatGPT Enterprise admin experience.",
+          "There is no standalone browser-specific policy catalog or ADMX/MDM templates for Atlas; enterprise governance relies on ChatGPT admin controls and external security tools.",
+          "Atlas is a new product without a long history of enterprise deployments, and its browser-native policy model is still evolving, warranting cautious, staged adoption with substantial compensating controls."
+        ]
+      }
+    },
+    "confidence": "partial"
+  },
+  "sources": [
+    {
+      "title": "Introducing ChatGPT Atlas",
+      "url": "https://openai.com/index/introducing-chatgpt-atlas/",
+      "notes": "Official introduction of Atlas describing it as a browser built with ChatGPT, including agent safeguards and high-level capabilities."
+    },
+    {
+      "title": "ChatGPT Atlas for Enterprise",
+      "url": "https://help.openai.com/en/articles/12603091-chatgpt-atlas-for-enterprise",
+      "notes": "Help article describing Atlas availability for Business and Enterprise customers and high-level admin controls."
+    },
+    {
+      "title": "ChatGPT Atlas Help Center",
+      "url": "https://help.openai.com/en/collections/16051538-chatgpt-atlas",
+      "notes": "Collection of Atlas-related help articles including default browser promotion and guidance for enterprise customers."
+    }
+  ],
+  "inherits": "blink"
+}

@@ -1,0 +1,133 @@
+{
+  "id": "arc",
+  "name": "Arc",
+  "vendor": "The Browser Company (Atlassian)",
+  "updated_at": "2026-01-27T07:30:00Z",
+  "engine": [
+    "Blink"
+  ],
+  "platforms": [
+    "windows",
+    "macos",
+    "ios",
+    "android"
+  ],
+  "profile": {
+    "public_description": "Experience a calmer, more personal internet in this browser designed for you. Let go of the clicks, the clutter, the distractions with the Arc browser.",
+    "summary": "Workflow-centric Chromium browser with innovative UX but no enterprise management model, now in maintenance mode with limited prospects for additional enterprise features.",
+    "popularity": 2,
+    "official_website": "https://arc.net",
+    "archetype": "productivity",
+    "primary_differentiator": "Chromium-based browser with a sidebar-centric interface, Spaces, and built-in creative tools focused on organizing workflows rather than traditional tab management."
+  },
+  "deployment": {
+    "posture": "consumer-first",
+    "rating": 2,
+    "summary": "Arc can be installed and lightly configured on managed devices, but the absence of a robust policy framework, limited documentation on enterprise controls, and the vendor's pivot away from Arc make it unsuitable as a primary enterprise browser.",
+    "best_fit_scenarios": [
+      "Small teams or departments using Arc for individual productivity and workflow organization on macOS or Windows, alongside a formally managed primary browser.",
+      "Design, product, or engineering groups experimenting with Spaces, split views, and creative tools to structure research and web-centric work without central policy requirements.",
+      "Organizations that allow Arc as an optional secondary browser for power users while enforcing stricter controls and compliance on a separate, enterprise-managed browser."
+    ],
+    "caution_scenarios": [
+      "Enterprises that require a documented enterprise policy catalog, ADMX templates, and a vendor-supported management plane comparable to mainstream enterprise browsers.",
+      "Environments with strict change control and long-term support expectations, given that The Browser Company has shifted focus away from Arc toward successor products.",
+      "Organizations that must meet formal compliance, audit, and data governance requirements using browser-native controls, given Arc's limited published information on enterprise logging, policy enforcement, and lifecycle support."
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 3,
+        "rationale": [
+          "Arc inherits Chromium's security properties, including multi-process architecture, sandboxing, and use of the Blink engine for web content isolation.",
+          "Vendor security documentation indicates that Arc uses Google Cloud Firebase for authentication and storage with encryption at rest, while stating that it does not log URLs, page content, or history as telemetry.",
+          "Public discussion has highlighted security flaws related to Arc's cloud-backed features, and there is no dedicated enterprise security hardening guide comparable to major enterprise browsers."
+        ]
+      },
+      "reliability": {
+        "score": 2,
+        "rationale": [
+          "Arc benefits from Chromium's proven rendering stack, and macOS and Windows builds have been available with ongoing maintenance updates.",
+          "Windows support launched later and has lagged macOS in feature parity.",
+          "The vendor's shift to maintenance mode introduces uncertainty about Arc's long-term update prioritization, affecting planning horizons in enterprise contexts."
+        ]
+      },
+      "performance": {
+        "score": 4,
+        "rationale": [
+          "As a Chromium-based browser, Arc generally offers performance characteristics similar to other Blink-based browsers for typical web applications.",
+          "Arc's UX design emphasizes sidebars and Spaces rather than heavy theme engines or bundled extensions, keeping the base runtime close to Chromium performance.",
+          "Some advanced features (AI tools, live previews, multi-pane views) can increase resource usage on lower-spec devices."
+        ]
+      },
+      "usability": {
+        "score": 4,
+        "rationale": [
+          "Arc introduces a sidebar-centric interface, Spaces, and tab lifecycle concepts (auto-archiving) that many users report as materially improving workflow organization.",
+          "The browser includes split view, profiles within Spaces, and integrated tools (Easels, Notes) that can reduce context switching for web-centric work.",
+          "These departures from conventional tabbed UI patterns create a learning curve, and some enterprise users may find Arc's interaction model unfamiliar."
+        ]
+      },
+      "compatibility": {
+        "score": 4,
+        "rationale": [
+          "Blink-based rendering and Chromium foundations provide broad compatibility with modern web standards and most SaaS applications built for Chromium.",
+          "Arc supports multiple profiles and Spaces, enabling separate sign-ins to different accounts for multi-tenant workflows.",
+          "Windows support has lacked full feature parity with macOS, and there is no enterprise compatibility program for business applications."
+        ]
+      },
+      "maintainability": {
+        "score": 1,
+        "rationale": [
+          "Arc can be installed and updated via standard OS mechanisms, and the vendor documents basic plist-based settings on macOS.",
+          "There is no publicly documented ADMX template set, MDM profile catalog, or centralized configuration reference for enterprises.",
+          "With Arc in maintenance mode, the limited enterprise management capabilities are unlikely to be expanded."
+        ]
+      },
+      "portability": {
+        "score": 3,
+        "rationale": [
+          "Arc is available on macOS, Windows, and iOS, with Android availability through Arc Search.",
+          "Feature parity is incomplete across platforms, with macOS ahead of Windows and mobile providing only partial browser capability.",
+          "There is no Linux or ChromeOS build, and enterprise management practices differ between macOS and Windows due to the lack of a standardized policy framework."
+        ]
+      },
+      "functional_suitability": {
+        "score": 3,
+        "rationale": [
+          "Arc supports core browsing needs: TLS, modern web APIs, and authentication to SaaS and internal web applications on top of Chromium's baseline capabilities.",
+          "Spaces, profiles, and workflow-centric features can be functionally useful for knowledge workers managing multiple accounts and projects.",
+          "Arc does not provide native enterprise capabilities such as policy-driven DLP, integrated identity controls, or compliance reporting."
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 1,
+        "rationale": [
+          "Arc's vendor has published limited information about configuration via macOS policies and has not released a comprehensive enterprise management toolkit.",
+          "Administrators have highlighted the lack of enterprise security management as a reason for restricting Arc in corporate environments.",
+          "The Browser Company's pivot away from Arc toward new products, combined with maintenance-mode status, means enterprise capabilities are effectively frozen."
+        ]
+      }
+    },
+    "confidence": "partial"
+  },
+  "sources": [
+    {
+      "title": "Arc from The Browser Company",
+      "url": "https://arc.net",
+      "notes": "Official marketing site describing Arc's UX focus, Spaces, and positioning."
+    },
+    {
+      "title": "Security – Arc Browser",
+      "url": "https://arc.net/security",
+      "notes": "Vendor security page explaining Chromium base, Firebase backend, encryption at rest, and telemetry practices."
+    },
+    {
+      "title": "How To Set Arc Group Policies",
+      "url": "https://resources.arc.net/hc/en-us/articles/22353769256471-How-To-Set-Arc-Group-Policies",
+      "notes": "Help article describing where Arc policies are stored on macOS and how to modify them via property list files."
+    }
+  ],
+  "inherits": "blink"
+}

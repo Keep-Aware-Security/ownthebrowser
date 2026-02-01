@@ -1,0 +1,147 @@
+{
+  "id": "brave",
+  "name": "Brave",
+  "vendor": "Brave Software, Inc.",
+  "updated_at": "2026-01-27T07:26:00Z",
+  "engine": [
+    "Blink"
+  ],
+  "platforms": [
+    "windows",
+    "macos",
+    "linux",
+    "ios",
+    "android"
+  ],
+  "tags": [
+    "Privacy"
+  ],
+  "profile": {
+    "public_description": "Brave is a fast, private and secure web browser that blocks trackers and ads by default, with built-in Shields, VPN, and other privacy features.",
+    "summary": "Privacy-focused Chromium browser with strong built-in tracking protections and basic policy template support, though it lacks a dedicated enterprise management plane and has a smaller, less mature enterprise feature set.",
+    "popularity": 2,
+    "official_website": "https://brave.com",
+    "archetype": "privacy",
+    "primary_differentiator": "Aggressive, built-in tracking protections via Brave Shields and fingerprinting defenses on top of a Chromium-based browser available across desktop and mobile platforms."
+  },
+  "deployment": {
+    "posture": "enterprise-tolerable",
+    "rating": 3.1,
+    "summary": "Brave can be deployed and partially managed via Group Policy and similar tools, but the limited documented policy surface and absence of a native management console mean enterprises must rely heavily on compensating controls.",
+    "best_fit_scenarios": [
+      "Organizations piloting a privacy-focused browser for specific user groups or workflows where aggressive ad and tracker blocking is desirable and potential site breakage is acceptable with compensating testing.",
+      "Teams conducting security or privacy research on tracking technologies and fingerprinting defenses, where Brave's Shields and fingerprint randomization provide useful default protections to observe.",
+      "Smaller organizations or technical departments that already depend on general-purpose configuration tools and are comfortable managing a browser primarily via Windows Group Policy templates and endpoint configuration rather than a dedicated browser console."
+    ],
+    "caution_scenarios": [
+      "Large enterprises seeking comprehensive, vendor-supported browser policy coverage, logging, and centralized governance comparable to mainstream enterprise browsers.",
+      "Environments with strict application compatibility requirements where Brave Shields' blocking and fingerprinting protections may cause functional issues on ad-supported or heavily instrumented sites and require detailed allowlisting.",
+      "Organizations that need formal enterprise SLAs, dedicated security and compliance documentation, and a consistent roadmap for enterprise features as part of their vendor management process."
+    ]
+  },
+  "assessment": {
+    "dimensions": {
+      "security": {
+        "score": 4,
+        "rationale": [
+          "Brave inherits Chromium's sandboxed, multi-process architecture and adds Brave Shields, which block third-party ads, trackers, cross-site cookies, and phishing-related content before it loads.",
+          "Fingerprinting protections such as API randomization, blocking of highly identifying APIs, and CNAME uncloaking reduce the effectiveness of cross-site tracking and some tracking-based attacks.",
+          "Security posture depends on external enterprise controls for identity, DLP, and detailed logging, and aggressive blocking behaviors can complicate monitoring and troubleshooting if not well-documented for operations teams."
+        ]
+      },
+      "reliability": {
+        "score": 3,
+        "rationale": [
+          "Brave tracks Chromium releases and uses an automatic update mechanism, providing a predictable stream of security and feature updates similar to other Chromium-based browsers.",
+          "Windows Group Policy templates allow organizations to manage installation and some update behavior through familiar enterprise tooling.",
+          "Aggressive default blocking and smaller-scale enterprise field experience may result in more unpredictable behavior for some enterprise web apps, requiring additional testing and support processes."
+        ]
+      },
+      "performance": {
+        "score": 4,
+        "rationale": [
+          "By blocking ads and trackers before they load, Brave can reduce network requests and script execution overhead, which can improve page load performance in many scenarios.",
+          "Chromium's performance characteristics and Brave's focus on blocking heavy tracking scripts can translate to efficient resource utilization for typical browsing workloads.",
+          "In some cases, replacement of resources and additional privacy logic may add complexity, and enterprises should validate performance on internal and critical SaaS applications under Brave's Shields settings."
+        ]
+      },
+      "usability": {
+        "score": 3,
+        "rationale": [
+          "Brave's user interface is broadly similar to other Chromium-based browsers, which can ease initial adoption for users familiar with Chrome-like layouts.",
+          "Brave Shields introduce additional UI controls that let users adjust privacy levels (Standard vs Aggressive) and inspect blocked resources on a per-site basis.",
+          "Enterprise users may encounter unexpected site behavior due to blocked resources, and the need to adjust Shields settings or apply exceptions can introduce friction and support demand."
+        ]
+      },
+      "compatibility": {
+        "score": 3,
+        "rationale": [
+          "As a Chromium-based browser, Brave is broadly compatible with modern web standards and many applications built with Chromium in mind.",
+          "Brave Shields' blocking of ads, trackers, and some scripts can break functionality on sites that rely on these resources for page logic or single sign-on flows.",
+          "Organizations often need to maintain allowlists or adjust Shields modes on specific domains to ensure compatibility for critical SaaS and internal applications."
+        ]
+      },
+      "maintainability": {
+        "score": 2,
+        "rationale": [
+          "Brave provides Group Policy templates that allow IT to install, update, and enforce certain settings using existing Windows configuration mechanisms.",
+          "Policy templates define a dedicated Brave policy space in the Windows registry, separating Brave from generic Chromium and Chrome policy settings.",
+          "The documented policy set is relatively small and there is no dedicated enterprise management portal, so many governance tasks rely on external tools and manual processes."
+        ]
+      },
+      "portability": {
+        "score": 4,
+        "rationale": [
+          "Brave is available on Windows, macOS, Linux, iOS, and Android, covering major desktop and mobile platforms.",
+          "The core privacy model and Shields concept are present across platforms, providing a broadly consistent user experience for privacy protections.",
+          "Enterprise-grade policy and deployment documentation is concentrated on Windows desktop with Group Policy, and cross-platform policy management typically depends on general MDM capabilities rather than Brave-specific tooling."
+        ]
+      },
+      "functional_suitability": {
+        "score": 3,
+        "rationale": [
+          "Brave supports core enterprise browsing functions, including modern web standards, TLS, and typical authentication flows, while also offering built-in VPN and firewall subscriptions for broader device protection.",
+          "Aggressive tracking protections can support privacy requirements for specific use cases or teams, reducing exposure to third-party tracking infrastructure.",
+          "The browser does not include native enterprise-browser features such as integrated DLP, identity-aware governance, or built-in enterprise reporting, so these needs must be met by external platforms."
+        ]
+      },
+      "enterprise_readiness": {
+        "score": 2,
+        "rationale": [
+          "Brave supports enterprise deployment through MSI-style installers, Group Policy templates, and automatic updates, allowing device-level management in Windows environments.",
+          "Existing policy templates can configure some security, privacy, and update-related settings, enabling a baseline of enforced configuration.",
+          "There is no dedicated Brave enterprise edition or cloud management console, documented policy coverage is comparatively limited, and enterprises must rely on broader endpoint and network tooling for governance and compliance."
+        ]
+      }
+    },
+    "confidence": "partial"
+  },
+  "sources": [
+    {
+      "title": "Brave browser GitHub repository",
+      "url": "https://github.com/brave/brave-browser",
+      "notes": "Open-source repository describing Brave as a Chromium-based browser for Android, iOS, Linux, macOS, and Windows under the MPL-2.0 license."
+    },
+    {
+      "title": "Brave Privacy Protection & Security Features",
+      "url": "https://brave.com/privacy-features/",
+      "notes": "Official Brave page detailing Brave Shields, tracking protection, fingerprinting defenses, and other privacy features."
+    },
+    {
+      "title": "Brave Shields - Blocking Ads, Trackers & more",
+      "url": "https://brave.com/shields/",
+      "notes": "Official description of Brave Shields behavior, including ad/tracker blocking, CNAME uncloaking, resource replacement, and fingerprint randomization."
+    },
+    {
+      "title": "Group Policy – Brave Help Center",
+      "url": "https://support.brave.app/hc/en-us/articles/360039248271-Group-Policy",
+      "notes": "Brave documentation on using Windows Group Policy and Brave policy templates to manage Brave installation, updates, and settings."
+    },
+    {
+      "title": "Brave: The browser that puts you first",
+      "url": "https://brave.com",
+      "notes": "Official Brave site outlining platform availability and general product positioning."
+    }
+  ],
+  "inherits": "blink"
+}
